@@ -1,0 +1,43 @@
+{
+  "name": "dst-skills",
+  "version": "8.2.0",
+  "description": "Multimodal ecommerce visual strategy, reference-driven image generation, and professional review for Codex.",
+  "author": {
+    "name": "Meihua Ye",
+    "url": "https://github.com/ymh3753201"
+  },
+  "homepage": "https://github.com/ymh3753201/dst-skills",
+  "repository": "https://github.com/ymh3753201/dst-skills",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skill",
+    "ecommerce",
+    "product-image",
+    "visual-strategy",
+    "image-generation",
+    "multimodal"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "DST Ecommerce Visual Director",
+    "shortDescription": "商品图分析、整套电商视觉方案与参考图生图",
+    "longDescription": "Analyze arbitrary product images, plan platform-specific ecommerce image placements and dimensions, create commercially complete copy and page blueprints, compile professional Image 2 prompts, generate from references, and review every page for product consistency, copy quality, claim safety, and buyer value.",
+    "developerName": "Meihua Ye",
+    "category": "Productivity",
+    "capabilities": [
+      "Vision",
+      "Planning",
+      "Writing",
+      "Image Generation",
+      "Review"
+    ],
+    "websiteURL": "https://github.com/ymh3753201/dst-skills",
+    "defaultPrompt": [
+      "用 $dst-skills 分析商品图并规划完整电商视觉方案。",
+      "用 $dst-skills 按平台多落点设计整套商品图。",
+      "用 $dst-skills 按已确认方案生成并验收全部图片。"
+    ],
+    "brandColor": "#A8754F"
+  }
+}

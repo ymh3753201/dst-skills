@@ -1,0 +1,794 @@
+{
+  "schema_version": "8.2",
+  "skill_version": "8.2.0",
+  "status": "planned",
+  "product": {
+    "name": "通用测试商品",
+    "category": "家居",
+    "identity_summary": "锁定参考图中的颜色、结构、比例和关键细节",
+    "identity_lock": [
+      "主体轮廓",
+      "结构分区",
+      "颜色与比例"
+    ],
+    "source_diagnosis": [
+      "原图背景干扰主体识别"
+    ],
+    "design_opportunities": [
+      "重建干净首图并扩展真实使用场景"
+    ]
+  },
+  "target": {
+    "platform": "示例平台",
+    "market": "CN",
+    "use": "多落点完整套图",
+    "full_set": true,
+    "mode": "standard",
+    "placements": [
+      {
+        "id": "square-main",
+        "name": "方形搜索首图与图库",
+        "surface": "search_main",
+        "selected_size": "1200x1200",
+        "aspect_ratio": "1:1",
+        "quantity": 3,
+        "basis": "设计建议；上线前按当前后台复核",
+        "research_ids": [
+          "platform-01"
+        ]
+      },
+      {
+        "id": "portrait-main",
+        "name": "3:4 主图",
+        "surface": "gallery",
+        "selected_size": "1200x1600",
+        "aspect_ratio": "3:4",
+        "quantity": 2,
+        "basis": "平台存在独立 3:4 主图落点；像素为设计建议",
+        "research_ids": [
+          "platform-01"
+        ]
+      },
+      {
+        "id": "detail-module",
+        "name": "纵向详情模块",
+        "surface": "detail",
+        "selected_size": "1200x1600",
+        "aspect_ratio": "3:4",
+        "quantity": 3,
+        "basis": "店铺内容区设计建议",
+        "research_ids": [
+          "platform-01"
+        ]
+      }
+    ],
+    "platform_validation": "design_recommendation",
+    "delivery_scope": "full_evidence"
+  },
+  "source_assets": [
+    {
+      "id": "asset-01",
+      "file": "source/product.png",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "role": "商品身份主参考",
+      "proves": [
+        "颜色",
+        "结构",
+        "比例"
+      ],
+      "limitations": [
+        "只有一个角度"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-01",
+      "text": "可见商品结构与颜色",
+      "source": "visible",
+      "source_ref": "asset-01",
+      "evidence_status": "verified",
+      "claim_scope": "只限该条文本明确表达的商品事实",
+      "approved_for_copy": true
+    },
+    {
+      "id": "fact-02",
+      "text": "用户确认的规格和服务信息",
+      "source": "user",
+      "source_ref": "用户资料",
+      "evidence_status": "verified",
+      "claim_scope": "只限该条文本明确表达的商品事实",
+      "approved_for_copy": true
+    }
+  ],
+  "research": [
+    {
+      "id": "platform-01",
+      "kind": "platform_delivery",
+      "source_type": "official",
+      "url": "https://example.com/platform",
+      "checked_at": "2026-07-15",
+      "finding": "平台存在多个图片落点，具体像素分别记录。"
+    }
+  ],
+  "decision_map": [
+    {
+      "id": "decision-identity",
+      "question": "买家能否第一眼认清商品？",
+      "priority": "high",
+      "status": "covered",
+      "basis": "visible",
+      "fact_ids": [
+        "fact-01"
+      ],
+      "page_ids": [
+        "page-01",
+        "page-02"
+      ],
+      "reason": "参考图可证明商品外观",
+      "dimension": "identity",
+      "claim_type": "product_fact",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    },
+    {
+      "id": "decision-use",
+      "question": "商品放入真实空间后的关系如何？",
+      "priority": "high",
+      "status": "covered",
+      "basis": "model_inferred",
+      "fact_ids": [],
+      "page_ids": [
+        "page-03"
+      ],
+      "reason": "基于参考图的 AI 场景渲染，不作为新增事实",
+      "dimension": "usage_fit",
+      "claim_type": "creative_simulation",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    },
+    {
+      "id": "decision-detail",
+      "question": "关键结构细节是否看得清？",
+      "priority": "high",
+      "status": "covered",
+      "basis": "visible",
+      "fact_ids": [
+        "fact-01"
+      ],
+      "page_ids": [
+        "page-04",
+        "page-05"
+      ],
+      "reason": "参考图可见关键结构",
+      "dimension": "proof",
+      "claim_type": "product_fact",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    },
+    {
+      "id": "decision-fit",
+      "question": "规格是否适合目标使用空间？",
+      "priority": "medium",
+      "status": "covered",
+      "basis": "user",
+      "fact_ids": [
+        "fact-02"
+      ],
+      "page_ids": [
+        "page-06"
+      ],
+      "reason": "用户规格表可追溯",
+      "dimension": "selection",
+      "claim_type": "product_fact",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    },
+    {
+      "id": "decision-trust",
+      "question": "还有哪些风险和服务边界需要说明？",
+      "priority": "medium",
+      "status": "covered",
+      "basis": "user",
+      "fact_ids": [
+        "fact-02"
+      ],
+      "page_ids": [
+        "page-07",
+        "page-08"
+      ],
+      "reason": "用户确认的服务信息",
+      "dimension": "trust",
+      "claim_type": "product_fact",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    }
+  ],
+  "visual_direction": {
+    "positioning": "解决目标买家最重要的购买决策",
+    "audience": "目标买家与使用场景",
+    "purchase_motivations": [
+      "识别商品",
+      "理解价值"
+    ],
+    "purchase_barriers": [
+      "规格",
+      "信任"
+    ],
+    "creative_concept": "一个贯穿整套的视觉主题",
+    "message_hierarchy": [
+      "核心定位",
+      "利益点",
+      "证据"
+    ],
+    "style": "专业、克制、可信",
+    "palette": [
+      "#F2EEE7",
+      "#342A24"
+    ],
+    "typography": "现代中文无衬线",
+    "layout_system": "统一品牌语法，不复制同一版式",
+    "consistency_rules": [
+      "商品身份不漂移"
+    ],
+    "commercial_completeness": "complete",
+    "copy_strategy": {
+      "principle": "缺少硬参数不等于缺少商业文案，但安全文案不得伪装成商品性能。",
+      "fact_copy_rule": "参数、功能、材质、配件与服务必须绑定已批准事实。",
+      "safe_copy_pillars": [
+        "可见设计语言",
+        "审美利益",
+        "场景情绪",
+        "类目教育",
+        "买家引导"
+      ],
+      "density_by_surface": {
+        "search_main": "none_or_low",
+        "gallery": "medium",
+        "detail": "medium_high"
+      },
+      "prohibited_inferences": [
+        "未证实参数",
+        "未证实功能",
+        "未证实服务"
+      ]
+    }
+  },
+  "pages": [
+    {
+      "id": "page-01",
+      "placement_id": "square-main",
+      "surface": "search_main",
+      "role": "hero",
+      "composition_type": "hero",
+      "buyer_question": "买家能否第一眼认清商品？",
+      "decision_ids": [
+        "decision-identity"
+      ],
+      "size": "1200x1200",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [
+        "fact-01"
+      ],
+      "copy": {},
+      "visual_brief": {
+        "product_scale": "商品占画面 62%-70%",
+        "product_multiplicity": "只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件",
+        "focal_zone": "右中部主视觉焦点",
+        "copy_zone": "左侧约 32% 图文信息区",
+        "hierarchy": "主标题 > 利益副标题 > 两条支撑信息",
+        "graphic_devices": [
+          "与商品轮廓呼应的细线",
+          "少量半透明弧面"
+        ],
+        "lighting": "主光塑造商品，辅助光保留结构细节",
+        "depth": "前景引导、中景商品、背景环境逐层退后",
+        "information_density": "medium",
+        "composition_rationale": "让买家先看到商品，再读取利益和支撑信息",
+        "content_modules": [
+          "hero_product",
+          "benefit_labels"
+        ]
+      },
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1200x1200 电商成图，平台为 示例平台，落点为 square-main / search_main，页面角色为 hero。回答买家问题：“买家能否第一眼认清商品？”。本页唯一价值是：第 1 页提供独立且不重复的可见证据。【商品身份】参考素材：asset-01。商品身份摘要：锁定参考图中的颜色、结构、比例和关键细节。必须锁定：主体轮廓、结构分区、颜色与比例。【构图蓝图】商品尺度：商品占画面 62%-70%；商品数量与重复视图：只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件；主焦点：右中部主视觉焦点；文案区：左侧约 32% 图文信息区；信息层级：主标题 > 利益副标题 > 两条支撑信息；内容模块：hero_product、benefit_labels；构图原因：让买家先看到商品，再读取利益和支撑信息。【文案系统】本页按平台落点要求保持无附加文案。逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：一个贯穿整套的视觉主题；风格：专业、克制、可信；色彩：#F2EEE7、#342A24；光线：主光塑造商品，辅助光保留结构细节；空间层次：前景引导、中景商品、背景环境逐层退后；图形语言：与商品轮廓呼应的细线、少量半透明弧面；信息密度：medium。【负面约束】商品一致性规则：商品身份不漂移。不得推断：未证实参数、未证实功能、未证实服务。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": "",
+      "primary_decision_id": "decision-identity",
+      "unique_evidence": "第 1 页提供独立且不重复的可见证据",
+      "has_factual_claims": false,
+      "claim_fact_ids": []
+    },
+    {
+      "id": "page-02",
+      "placement_id": "portrait-main",
+      "surface": "gallery",
+      "role": "hero",
+      "composition_type": "hero",
+      "buyer_question": "买家能否第一眼认清商品？",
+      "decision_ids": [
+        "decision-identity"
+      ],
+      "size": "1200x1600",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [
+        "fact-01"
+      ],
+      "copy": {
+        "headline": {
+          "text": "先看整体轮廓",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "商品结构与比例，一眼建立清晰认知",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "正面关系完整呈现",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          },
+          {
+            "text": "主视觉只保留一个核心焦点",
+            "kind": "scenario_narrative",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "visual_brief": {
+        "product_scale": "商品占画面 62%-70%",
+        "product_multiplicity": "只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件",
+        "focal_zone": "右中部主视觉焦点",
+        "copy_zone": "左侧约 32% 图文信息区",
+        "hierarchy": "主标题 > 利益副标题 > 两条支撑信息",
+        "graphic_devices": [
+          "与商品轮廓呼应的细线",
+          "少量半透明弧面"
+        ],
+        "lighting": "主光塑造商品，辅助光保留结构细节",
+        "depth": "前景引导、中景商品、背景环境逐层退后",
+        "information_density": "medium",
+        "composition_rationale": "让买家先看到商品，再读取利益和支撑信息",
+        "content_modules": [
+          "hero_product",
+          "benefit_labels"
+        ]
+      },
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1200x1600 电商成图，平台为 示例平台，落点为 portrait-main / gallery，页面角色为 hero。回答买家问题：“买家能否第一眼认清商品？”。本页唯一价值是：第 2 页提供独立且不重复的可见证据。【商品身份】参考素材：asset-01。商品身份摘要：锁定参考图中的颜色、结构、比例和关键细节。必须锁定：主体轮廓、结构分区、颜色与比例。【构图蓝图】商品尺度：商品占画面 62%-70%；商品数量与重复视图：只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件；主焦点：右中部主视觉焦点；文案区：左侧约 32% 图文信息区；信息层级：主标题 > 利益副标题 > 两条支撑信息；内容模块：hero_product、benefit_labels；构图原因：让买家先看到商品，再读取利益和支撑信息。【文案系统】headline：“先看整体轮廓”（safe_commercial）；subheadline：“商品结构与比例，一眼建立清晰认知”（safe_commercial）；supporting_points：“正面关系完整呈现”（safe_commercial）；supporting_points：“主视觉只保留一个核心焦点”（scenario_narrative）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：一个贯穿整套的视觉主题；风格：专业、克制、可信；色彩：#F2EEE7、#342A24；光线：主光塑造商品，辅助光保留结构细节；空间层次：前景引导、中景商品、背景环境逐层退后；图形语言：与商品轮廓呼应的细线、少量半透明弧面；信息密度：medium。【负面约束】商品一致性规则：商品身份不漂移。不得推断：未证实参数、未证实功能、未证实服务。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": "",
+      "primary_decision_id": "decision-identity",
+      "unique_evidence": "第 2 页提供独立且不重复的可见证据",
+      "has_factual_claims": false,
+      "claim_fact_ids": []
+    },
+    {
+      "id": "page-03",
+      "placement_id": "portrait-main",
+      "surface": "gallery",
+      "role": "scene",
+      "composition_type": "scene",
+      "buyer_question": "商品放入真实空间后的关系如何？",
+      "decision_ids": [
+        "decision-use"
+      ],
+      "size": "1200x1600",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [],
+      "copy": {
+        "headline": {
+          "text": "放进真实场景再理解",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "通过环境关系，感受商品进入生活后的状态",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "场景只负责建立使用代入",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          },
+          {
+            "text": "商品结构仍以参考素材为准",
+            "kind": "scenario_narrative",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "visual_brief": {
+        "product_scale": "商品占画面 62%-70%",
+        "product_multiplicity": "只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件",
+        "focal_zone": "右中部主视觉焦点",
+        "copy_zone": "左侧约 32% 图文信息区",
+        "hierarchy": "主标题 > 利益副标题 > 两条支撑信息",
+        "graphic_devices": [
+          "与商品轮廓呼应的细线",
+          "少量半透明弧面"
+        ],
+        "lighting": "主光塑造商品，辅助光保留结构细节",
+        "depth": "前景引导、中景商品、背景环境逐层退后",
+        "information_density": "medium",
+        "composition_rationale": "让买家先看到商品，再读取利益和支撑信息",
+        "content_modules": [
+          "lifestyle_scene",
+          "benefit_labels"
+        ]
+      },
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1200x1600 电商成图，平台为 示例平台，落点为 portrait-main / gallery，页面角色为 scene。回答买家问题：“商品放入真实空间后的关系如何？”。本页唯一价值是：第 3 页提供独立且不重复的可见证据。【商品身份】参考素材：asset-01。商品身份摘要：锁定参考图中的颜色、结构、比例和关键细节。必须锁定：主体轮廓、结构分区、颜色与比例。【构图蓝图】商品尺度：商品占画面 62%-70%；商品数量与重复视图：只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件；主焦点：右中部主视觉焦点；文案区：左侧约 32% 图文信息区；信息层级：主标题 > 利益副标题 > 两条支撑信息；内容模块：lifestyle_scene、benefit_labels；构图原因：让买家先看到商品，再读取利益和支撑信息。【文案系统】headline：“放进真实场景再理解”（safe_commercial）；subheadline：“通过环境关系，感受商品进入生活后的状态”（safe_commercial）；supporting_points：“场景只负责建立使用代入”（safe_commercial）；supporting_points：“商品结构仍以参考素材为准”（scenario_narrative）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：一个贯穿整套的视觉主题；风格：专业、克制、可信；色彩：#F2EEE7、#342A24；光线：主光塑造商品，辅助光保留结构细节；空间层次：前景引导、中景商品、背景环境逐层退后；图形语言：与商品轮廓呼应的细线、少量半透明弧面；信息密度：medium。【负面约束】商品一致性规则：商品身份不漂移。不得推断：未证实参数、未证实功能、未证实服务。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": "",
+      "primary_decision_id": "decision-use",
+      "unique_evidence": "第 3 页提供独立且不重复的可见证据",
+      "has_factual_claims": false,
+      "claim_fact_ids": []
+    },
+    {
+      "id": "page-04",
+      "placement_id": "square-main",
+      "surface": "search_main",
+      "role": "detail",
+      "composition_type": "detail",
+      "buyer_question": "关键结构细节是否看得清？",
+      "decision_ids": [
+        "decision-detail"
+      ],
+      "size": "1200x1200",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [
+        "fact-01"
+      ],
+      "copy": {
+        "headline": {
+          "text": "关键结构，放大看清",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "从局部关系理解商品设计",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "近景聚焦本页唯一结构证据",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          },
+          {
+            "text": "引导线只说明可见位置关系",
+            "kind": "scenario_narrative",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "visual_brief": {
+        "product_scale": "商品占画面 62%-70%",
+        "product_multiplicity": "只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件",
+        "focal_zone": "右中部主视觉焦点",
+        "copy_zone": "左侧约 32% 图文信息区",
+        "hierarchy": "主标题 > 利益副标题 > 两条支撑信息",
+        "graphic_devices": [
+          "与商品轮廓呼应的细线",
+          "少量半透明弧面"
+        ],
+        "lighting": "主光塑造商品，辅助光保留结构细节",
+        "depth": "前景引导、中景商品、背景环境逐层退后",
+        "information_density": "medium",
+        "composition_rationale": "让买家先看到商品，再读取利益和支撑信息",
+        "content_modules": [
+          "macro_proof",
+          "callout"
+        ]
+      },
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1200x1200 电商成图，平台为 示例平台，落点为 square-main / search_main，页面角色为 detail。回答买家问题：“关键结构细节是否看得清？”。本页唯一价值是：第 4 页提供独立且不重复的可见证据。【商品身份】参考素材：asset-01。商品身份摘要：锁定参考图中的颜色、结构、比例和关键细节。必须锁定：主体轮廓、结构分区、颜色与比例。【构图蓝图】商品尺度：商品占画面 62%-70%；商品数量与重复视图：只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件；主焦点：右中部主视觉焦点；文案区：左侧约 32% 图文信息区；信息层级：主标题 > 利益副标题 > 两条支撑信息；内容模块：macro_proof、callout；构图原因：让买家先看到商品，再读取利益和支撑信息。【文案系统】headline：“关键结构，放大看清”（safe_commercial）；subheadline：“从局部关系理解商品设计”（safe_commercial）；supporting_points：“近景聚焦本页唯一结构证据”（safe_commercial）；supporting_points：“引导线只说明可见位置关系”（scenario_narrative）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：一个贯穿整套的视觉主题；风格：专业、克制、可信；色彩：#F2EEE7、#342A24；光线：主光塑造商品，辅助光保留结构细节；空间层次：前景引导、中景商品、背景环境逐层退后；图形语言：与商品轮廓呼应的细线、少量半透明弧面；信息密度：medium。【负面约束】商品一致性规则：商品身份不漂移。不得推断：未证实参数、未证实功能、未证实服务。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": "",
+      "primary_decision_id": "decision-detail",
+      "unique_evidence": "第 4 页提供独立且不重复的可见证据",
+      "has_factual_claims": false,
+      "claim_fact_ids": []
+    },
+    {
+      "id": "page-05",
+      "placement_id": "square-main",
+      "surface": "search_main",
+      "role": "angles",
+      "composition_type": "angles",
+      "buyer_question": "关键结构细节是否看得清？",
+      "decision_ids": [
+        "decision-detail"
+      ],
+      "size": "1200x1200",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [
+        "fact-01"
+      ],
+      "copy": {
+        "headline": {
+          "text": "多个角度，一次看懂",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "正面、侧面与背面关系更清楚",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "不同视角保持同一商品身份",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          },
+          {
+            "text": "结构数量与几何比例不漂移",
+            "kind": "scenario_narrative",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "visual_brief": {
+        "product_scale": "商品占画面 62%-70%",
+        "product_multiplicity": "只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件",
+        "focal_zone": "右中部主视觉焦点",
+        "copy_zone": "左侧约 32% 图文信息区",
+        "hierarchy": "主标题 > 利益副标题 > 两条支撑信息",
+        "graphic_devices": [
+          "与商品轮廓呼应的细线",
+          "少量半透明弧面"
+        ],
+        "lighting": "主光塑造商品，辅助光保留结构细节",
+        "depth": "前景引导、中景商品、背景环境逐层退后",
+        "information_density": "medium",
+        "composition_rationale": "让买家先看到商品，再读取利益和支撑信息",
+        "content_modules": [
+          "multi_angle_proof",
+          "callout"
+        ]
+      },
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1200x1200 电商成图，平台为 示例平台，落点为 square-main / search_main，页面角色为 angles。回答买家问题：“关键结构细节是否看得清？”。本页唯一价值是：第 5 页提供独立且不重复的可见证据。【商品身份】参考素材：asset-01。商品身份摘要：锁定参考图中的颜色、结构、比例和关键细节。必须锁定：主体轮廓、结构分区、颜色与比例。【构图蓝图】商品尺度：商品占画面 62%-70%；商品数量与重复视图：只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件；主焦点：右中部主视觉焦点；文案区：左侧约 32% 图文信息区；信息层级：主标题 > 利益副标题 > 两条支撑信息；内容模块：multi_angle_proof、callout；构图原因：让买家先看到商品，再读取利益和支撑信息。【文案系统】headline：“多个角度，一次看懂”（safe_commercial）；subheadline：“正面、侧面与背面关系更清楚”（safe_commercial）；supporting_points：“不同视角保持同一商品身份”（safe_commercial）；supporting_points：“结构数量与几何比例不漂移”（scenario_narrative）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：一个贯穿整套的视觉主题；风格：专业、克制、可信；色彩：#F2EEE7、#342A24；光线：主光塑造商品，辅助光保留结构细节；空间层次：前景引导、中景商品、背景环境逐层退后；图形语言：与商品轮廓呼应的细线、少量半透明弧面；信息密度：medium。【负面约束】商品一致性规则：商品身份不漂移。不得推断：未证实参数、未证实功能、未证实服务。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": "",
+      "primary_decision_id": "decision-detail",
+      "unique_evidence": "第 5 页提供独立且不重复的可见证据",
+      "has_factual_claims": false,
+      "claim_fact_ids": []
+    },
+    {
+      "id": "page-06",
+      "placement_id": "detail-module",
+      "surface": "detail",
+      "role": "diagram",
+      "composition_type": "diagram",
+      "buyer_question": "规格是否适合目标使用空间？",
+      "decision_ids": [
+        "decision-fit"
+      ],
+      "size": "1200x1600",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [
+        "fact-02"
+      ],
+      "copy": {
+        "headline": {
+          "text": "选购之前，先核对关键信息",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "把规格关系转成容易理解的选择指引",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "已确认内容清晰标注",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          },
+          {
+            "text": "缺失参数保留买前核对提示",
+            "kind": "scenario_narrative",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "visual_brief": {
+        "product_scale": "商品占画面 62%-70%",
+        "product_multiplicity": "只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件",
+        "focal_zone": "右中部主视觉焦点",
+        "copy_zone": "左侧约 32% 图文信息区",
+        "hierarchy": "主标题 > 利益副标题 > 两条支撑信息",
+        "graphic_devices": [
+          "与商品轮廓呼应的细线",
+          "少量半透明弧面"
+        ],
+        "lighting": "主光塑造商品，辅助光保留结构细节",
+        "depth": "前景引导、中景商品、背景环境逐层退后",
+        "information_density": "medium_high",
+        "composition_rationale": "让买家先看到商品，再读取利益和支撑信息",
+        "content_modules": [
+          "decision_diagram",
+          "buyer_guidance"
+        ]
+      },
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1200x1600 电商成图，平台为 示例平台，落点为 detail-module / detail，页面角色为 diagram。回答买家问题：“规格是否适合目标使用空间？”。本页唯一价值是：第 6 页提供独立且不重复的可见证据。【商品身份】参考素材：asset-01。商品身份摘要：锁定参考图中的颜色、结构、比例和关键细节。必须锁定：主体轮廓、结构分区、颜色与比例。【构图蓝图】商品尺度：商品占画面 62%-70%；商品数量与重复视图：只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件；主焦点：右中部主视觉焦点；文案区：左侧约 32% 图文信息区；信息层级：主标题 > 利益副标题 > 两条支撑信息；内容模块：decision_diagram、buyer_guidance；构图原因：让买家先看到商品，再读取利益和支撑信息。【文案系统】headline：“选购之前，先核对关键信息”（safe_commercial）；subheadline：“把规格关系转成容易理解的选择指引”（safe_commercial）；supporting_points：“已确认内容清晰标注”（safe_commercial）；supporting_points：“缺失参数保留买前核对提示”（scenario_narrative）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：一个贯穿整套的视觉主题；风格：专业、克制、可信；色彩：#F2EEE7、#342A24；光线：主光塑造商品，辅助光保留结构细节；空间层次：前景引导、中景商品、背景环境逐层退后；图形语言：与商品轮廓呼应的细线、少量半透明弧面；信息密度：medium_high。【负面约束】商品一致性规则：商品身份不漂移。不得推断：未证实参数、未证实功能、未证实服务。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": "",
+      "primary_decision_id": "decision-fit",
+      "unique_evidence": "第 6 页提供独立且不重复的可见证据",
+      "has_factual_claims": false,
+      "claim_fact_ids": []
+    },
+    {
+      "id": "page-07",
+      "placement_id": "detail-module",
+      "surface": "detail",
+      "role": "trust",
+      "composition_type": "trust",
+      "buyer_question": "还有哪些风险和服务边界需要说明？",
+      "decision_ids": [
+        "decision-trust"
+      ],
+      "size": "1200x1600",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [
+        "fact-02"
+      ],
+      "copy": {
+        "headline": {
+          "text": "把风险与边界说清楚",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "购买前需要确认的内容集中呈现",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "事实证据与安全提示明确分层",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          },
+          {
+            "text": "未确认服务不写成店铺承诺",
+            "kind": "scenario_narrative",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "visual_brief": {
+        "product_scale": "商品占画面 62%-70%",
+        "product_multiplicity": "只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件",
+        "focal_zone": "右中部主视觉焦点",
+        "copy_zone": "左侧约 32% 图文信息区",
+        "hierarchy": "主标题 > 利益副标题 > 两条支撑信息",
+        "graphic_devices": [
+          "与商品轮廓呼应的细线",
+          "少量半透明弧面"
+        ],
+        "lighting": "主光塑造商品，辅助光保留结构细节",
+        "depth": "前景引导、中景商品、背景环境逐层退后",
+        "information_density": "medium_high",
+        "composition_rationale": "让买家先看到商品，再读取利益和支撑信息",
+        "content_modules": [
+          "trust_evidence",
+          "buyer_guidance"
+        ]
+      },
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1200x1600 电商成图，平台为 示例平台，落点为 detail-module / detail，页面角色为 trust。回答买家问题：“还有哪些风险和服务边界需要说明？”。本页唯一价值是：第 7 页提供独立且不重复的可见证据。【商品身份】参考素材：asset-01。商品身份摘要：锁定参考图中的颜色、结构、比例和关键细节。必须锁定：主体轮廓、结构分区、颜色与比例。【构图蓝图】商品尺度：商品占画面 62%-70%；商品数量与重复视图：只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件；主焦点：右中部主视觉焦点；文案区：左侧约 32% 图文信息区；信息层级：主标题 > 利益副标题 > 两条支撑信息；内容模块：trust_evidence、buyer_guidance；构图原因：让买家先看到商品，再读取利益和支撑信息。【文案系统】headline：“把风险与边界说清楚”（safe_commercial）；subheadline：“购买前需要确认的内容集中呈现”（safe_commercial）；supporting_points：“事实证据与安全提示明确分层”（safe_commercial）；supporting_points：“未确认服务不写成店铺承诺”（scenario_narrative）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：一个贯穿整套的视觉主题；风格：专业、克制、可信；色彩：#F2EEE7、#342A24；光线：主光塑造商品，辅助光保留结构细节；空间层次：前景引导、中景商品、背景环境逐层退后；图形语言：与商品轮廓呼应的细线、少量半透明弧面；信息密度：medium_high。【负面约束】商品一致性规则：商品身份不漂移。不得推断：未证实参数、未证实功能、未证实服务。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": "",
+      "primary_decision_id": "decision-trust",
+      "unique_evidence": "第 7 页提供独立且不重复的可见证据",
+      "has_factual_claims": false,
+      "claim_fact_ids": []
+    },
+    {
+      "id": "page-08",
+      "placement_id": "detail-module",
+      "surface": "detail",
+      "role": "closing",
+      "composition_type": "closing",
+      "buyer_question": "还有哪些风险和服务边界需要说明？",
+      "decision_ids": [
+        "decision-trust"
+      ],
+      "size": "1200x1600",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [
+        "fact-02"
+      ],
+      "copy": {
+        "headline": {
+          "text": "从认识商品到安心选择",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "把整套信息收束成清晰的购买路径",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "回顾外观、场景与选购重点",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          },
+          {
+            "text": "最后一步提醒核对实际商品信息",
+            "kind": "scenario_narrative",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "visual_brief": {
+        "product_scale": "商品占画面 62%-70%",
+        "product_multiplicity": "只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件",
+        "focal_zone": "右中部主视觉焦点",
+        "copy_zone": "左侧约 32% 图文信息区",
+        "hierarchy": "主标题 > 利益副标题 > 两条支撑信息",
+        "graphic_devices": [
+          "与商品轮廓呼应的细线",
+          "少量半透明弧面"
+        ],
+        "lighting": "主光塑造商品，辅助光保留结构细节",
+        "depth": "前景引导、中景商品、背景环境逐层退后",
+        "information_density": "medium_high",
+        "composition_rationale": "让买家先看到商品，再读取利益和支撑信息",
+        "content_modules": [
+          "brand_closing",
+          "benefit_labels"
+        ]
+      },
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1200x1600 电商成图，平台为 示例平台，落点为 detail-module / detail，页面角色为 closing。回答买家问题：“还有哪些风险和服务边界需要说明？”。本页唯一价值是：第 8 页提供独立且不重复的可见证据。【商品身份】参考素材：asset-01。商品身份摘要：锁定参考图中的颜色、结构、比例和关键细节。必须锁定：主体轮廓、结构分区、颜色与比例。【构图蓝图】商品尺度：商品占画面 62%-70%；商品数量与重复视图：只呈现一套售卖商品；多角度仅为同一商品视图，不代表多件；主焦点：右中部主视觉焦点；文案区：左侧约 32% 图文信息区；信息层级：主标题 > 利益副标题 > 两条支撑信息；内容模块：brand_closing、benefit_labels；构图原因：让买家先看到商品，再读取利益和支撑信息。【文案系统】headline：“从认识商品到安心选择”（safe_commercial）；subheadline：“把整套信息收束成清晰的购买路径”（safe_commercial）；supporting_points：“回顾外观、场景与选购重点”（safe_commercial）；supporting_points：“最后一步提醒核对实际商品信息”（scenario_narrative）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：一个贯穿整套的视觉主题；风格：专业、克制、可信；色彩：#F2EEE7、#342A24；光线：主光塑造商品，辅助光保留结构细节；空间层次：前景引导、中景商品、背景环境逐层退后；图形语言：与商品轮廓呼应的细线、少量半透明弧面；信息密度：medium_high。【负面约束】商品一致性规则：商品身份不漂移。不得推断：未证实参数、未证实功能、未证实服务。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": "",
+      "primary_decision_id": "decision-trust",
+      "unique_evidence": "第 8 页提供独立且不重复的可见证据",
+      "has_factual_claims": false,
+      "claim_fact_ids": []
+    }
+  ],
+  "confirmation": {
+    "status": "pending",
+    "confirmed_at": "",
+    "method": "",
+    "plan_sha256": "",
+    "execution_manifest_sha256": ""
+  },
+  "generation_log": [],
+  "review": {
+    "status": "planned",
+    "reviewer_type": "",
+    "contact_sheet": "",
+    "contact_sheet_sha256": "",
+    "set_checks": {},
+    "pages": []
+  },
+  "plan_document": "plan.md"
+}
