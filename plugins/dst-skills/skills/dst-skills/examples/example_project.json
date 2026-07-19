@@ -1,0 +1,894 @@
+{
+  "schema_version": "8.2",
+  "skill_version": "8.2.0",
+  "status": "planned",
+  "product": {
+    "name": "便携浓缩咖啡机",
+    "category": "小家电 / 咖啡器具",
+    "identity_summary": "黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份",
+    "identity_lock": [
+      "黑色圆柱主体与底部杯仓比例",
+      "顶部圆形按键和侧面透明水仓位置",
+      "USB-C 接口位置",
+      "机身、水仓、杯仓和配件数量不变"
+    ],
+    "source_diagnosis": [
+      "正面素材能证明整机轮廓，但缺少真实使用环境尺度",
+      "侧面素材可见水仓和 USB-C 接口",
+      "配件素材可核对主机、咖啡杯、量勺和充电线"
+    ],
+    "design_opportunities": [
+      "重建干净商品主图",
+      "用多角度结构页降低理解成本",
+      "用场景渲染建立办公室与旅行代入",
+      "把操作步骤和包装清单做成信息型详情页"
+    ]
+  },
+  "target": {
+    "platform": "Shopify",
+    "market": "Global",
+    "use": "商品媒体与店铺详情完整套图",
+    "full_set": true,
+    "mode": "standard",
+    "placements": [
+      {
+        "id": "shopify-search-main",
+        "name": "商品搜索与首张媒体主图",
+        "surface": "search_main",
+        "selected_size": "2048x2048",
+        "aspect_ratio": "1:1",
+        "quantity": 1,
+        "basis": "方形高分辨率设计建议；上线前按当前主题与后台复核",
+        "research_ids": [
+          "platform-01"
+        ]
+      },
+      {
+        "id": "shopify-media-square",
+        "name": "商品媒体方形图库",
+        "surface": "gallery",
+        "selected_size": "2048x2048",
+        "aspect_ratio": "1:1",
+        "quantity": 4,
+        "basis": "同组商品媒体保持一致比例的设计建议",
+        "research_ids": [
+          "platform-01"
+        ]
+      },
+      {
+        "id": "shopify-detail-portrait",
+        "name": "店铺主题纵向详情模块",
+        "surface": "detail",
+        "selected_size": "1536x2048",
+        "aspect_ratio": "3:4",
+        "quantity": 3,
+        "basis": "店铺内容区设计建议；上线前按主题容器复核",
+        "research_ids": [
+          "platform-01"
+        ]
+      }
+    ],
+    "platform_validation": "design_recommendation",
+    "delivery_scope": "full_evidence"
+  },
+  "source_assets": [
+    {
+      "id": "asset-01",
+      "file": "source/coffee-front.png",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "role": "正面商品身份主参考",
+      "proves": [
+        "整机轮廓",
+        "顶部按键",
+        "机身与杯仓比例"
+      ],
+      "limitations": [
+        "缺少侧面接口"
+      ]
+    },
+    {
+      "id": "asset-02",
+      "file": "source/coffee-side.png",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "role": "侧面结构参考",
+      "proves": [
+        "透明水仓位置",
+        "USB-C 接口位置"
+      ],
+      "limitations": [
+        "不能证明性能"
+      ]
+    },
+    {
+      "id": "asset-03",
+      "file": "source/coffee-package.png",
+      "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "role": "包装内容参考",
+      "proves": [
+        "主机、咖啡杯、量勺、充电线"
+      ],
+      "limitations": [
+        "不能证明售后服务"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-structure",
+      "text": "黑色圆柱机身，顶部圆形按键，侧面透明水仓",
+      "source": "visible",
+      "source_ref": "asset-01,asset-02",
+      "evidence_status": "verified",
+      "claim_scope": "只证明参考素材中可见的外观结构",
+      "approved_for_copy": true
+    },
+    {
+      "id": "fact-pressure",
+      "text": "标注泵压为 15Bar",
+      "source": "user",
+      "source_ref": "用户规格表",
+      "evidence_status": "verified",
+      "claim_scope": "只证明用户资料标注的该款商品泵压",
+      "approved_for_copy": true
+    },
+    {
+      "id": "fact-usbc",
+      "text": "机身侧面可见 USB-C 充电接口",
+      "source": "visible",
+      "source_ref": "asset-02",
+      "evidence_status": "verified",
+      "claim_scope": "只证明接口类型与可见位置",
+      "approved_for_copy": true
+    },
+    {
+      "id": "fact-steps",
+      "text": "说明书列出加水、装粉、启动三步操作",
+      "source": "user",
+      "source_ref": "用户说明书",
+      "evidence_status": "verified",
+      "claim_scope": "只证明说明书所列操作顺序",
+      "approved_for_copy": true
+    },
+    {
+      "id": "fact-package",
+      "text": "包装内容包含主机、咖啡杯、量勺、充电线",
+      "source": "visible",
+      "source_ref": "asset-03",
+      "evidence_status": "verified",
+      "claim_scope": "只证明参考包装图中的四项内容",
+      "approved_for_copy": true
+    }
+  ],
+  "research": [
+    {
+      "id": "platform-01",
+      "kind": "platform_delivery",
+      "source_type": "official",
+      "url": "https://help.shopify.com/en/manual/products/product-media/product-media-types",
+      "checked_at": "2026-07-18",
+      "finding": "Shopify 商品媒体与店铺主题内容区属于不同呈现关系；本例像素按可执行设计建议记录，上线前按店铺主题复核。"
+    }
+  ],
+  "decision_map": [
+    {
+      "id": "decision-identity",
+      "question": "买家能否迅速认清商品与完整结构？",
+      "priority": "high",
+      "status": "covered",
+      "basis": "visible",
+      "fact_ids": [
+        "fact-structure"
+      ],
+      "page_ids": [
+        "page-01",
+        "page-03"
+      ],
+      "reason": "正面与侧面素材可以锁定整机身份",
+      "dimension": "identity",
+      "claim_type": "product_fact",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    },
+    {
+      "id": "decision-proof",
+      "question": "核心规格是否有明确事实依据？",
+      "priority": "high",
+      "status": "covered",
+      "basis": "user",
+      "fact_ids": [
+        "fact-pressure"
+      ],
+      "page_ids": [
+        "page-02"
+      ],
+      "reason": "15Bar 来自用户规格表",
+      "dimension": "proof",
+      "claim_type": "product_fact",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    },
+    {
+      "id": "decision-use",
+      "question": "商品进入办公室和旅行场景后是否容易理解？",
+      "priority": "medium",
+      "status": "covered",
+      "basis": "model_inferred",
+      "fact_ids": [],
+      "page_ids": [
+        "page-04"
+      ],
+      "reason": "AI 场景仅建立生活代入，不证明性能",
+      "dimension": "usage_fit",
+      "claim_type": "creative_simulation",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    },
+    {
+      "id": "decision-selection",
+      "question": "接口与操作流程是否容易核对？",
+      "priority": "high",
+      "status": "covered",
+      "basis": "user",
+      "fact_ids": [
+        "fact-usbc",
+        "fact-steps"
+      ],
+      "page_ids": [
+        "page-05",
+        "page-06"
+      ],
+      "reason": "接口来自侧面实拍，步骤来自说明书",
+      "dimension": "selection",
+      "claim_type": "product_fact",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    },
+    {
+      "id": "decision-trust",
+      "question": "包装内容和购买边界是否清楚？",
+      "priority": "medium",
+      "status": "covered",
+      "basis": "visible",
+      "fact_ids": [
+        "fact-package"
+      ],
+      "page_ids": [
+        "page-07",
+        "page-08"
+      ],
+      "reason": "包装图可逐项核对，未证实服务不写入图片",
+      "dimension": "trust",
+      "claim_type": "product_fact",
+      "blocking_scope": "none",
+      "safe_fallback": ""
+    }
+  ],
+  "visual_direction": {
+    "positioning": "为通勤、露营和自驾用户提供容易理解、容易核对的便携浓缩咖啡机商品信息",
+    "audience": "重视效率、使用路径和随行场景的咖啡用户",
+    "purchase_motivations": [
+      "在不同地点完成浓缩咖啡制作",
+      "快速理解结构与操作",
+      "购买前看清接口和包装内容"
+    ],
+    "purchase_barriers": [
+      "担心操作复杂",
+      "担心商品结构与图片不一致",
+      "担心接口和包装内容不清楚"
+    ],
+    "creative_concept": "把咖啡馆装进行囊",
+    "message_hierarchy": [
+      "先认清便携机身",
+      "再理解泵压、接口和操作证据",
+      "最后核对包装内容与购买边界"
+    ],
+    "style": "温暖、克制、可信",
+    "palette": [
+      "#F1E7D6",
+      "#171717",
+      "#A96B3C",
+      "#F7F5F0"
+    ],
+    "typography": "现代中文无衬线，标题稳重，参数信息清楚",
+    "layout_system": "咖啡流线和旅行路径贯穿整套；主图低密度、图库中密度、详情中高密度；不复制同一模板",
+    "consistency_rules": [
+      "锁定黑色圆柱机身与杯仓比例",
+      "顶部按键、水仓和 USB-C 接口位置不漂移",
+      "不新增配件",
+      "咖啡流和场景只作视觉叙事"
+    ],
+    "commercial_completeness": "complete",
+    "copy_strategy": {
+      "principle": "缺参数不等于缺文案；事实文案可追溯，安全商业文案负责建立理解和代入。",
+      "fact_copy_rule": "15Bar、USB-C、操作步骤和包装内容必须绑定对应事实。",
+      "safe_copy_pillars": [
+        "随行场景叙事",
+        "可见结构教育",
+        "操作理解",
+        "买前核对指引"
+      ],
+      "density_by_surface": {
+        "search_main": "none",
+        "gallery": "medium",
+        "detail": "medium_high"
+      },
+      "prohibited_inferences": [
+        "未证实重量与续航",
+        "未证实加热能力",
+        "未证实兼容胶囊",
+        "未证实售后承诺"
+      ]
+    }
+  },
+  "pages": [
+    {
+      "id": "page-01",
+      "placement_id": "shopify-search-main",
+      "surface": "search_main",
+      "role": "clean_search_hero",
+      "composition_type": "hero",
+      "buyer_question": "买家能否迅速认清商品与完整结构？",
+      "decision_ids": [
+        "decision-identity"
+      ],
+      "primary_decision_id": "decision-identity",
+      "unique_evidence": "无文字完整整机建立商品身份",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-structure"
+      ],
+      "copy": {},
+      "has_factual_claims": false,
+      "claim_fact_ids": [],
+      "visual_brief": {
+        "product_scale": "商品占画面 72%-78%",
+        "focal_zone": "画面中心略偏下，完整机身为唯一焦点",
+        "copy_zone": "平台无字首图，不设置文案区",
+        "hierarchy": "商品轮廓 > 水仓与按键细节 > 自然落影",
+        "graphic_devices": [
+          "无装饰图标",
+          "仅保留真实柔和落影"
+        ],
+        "lighting": "干净棚拍主光勾勒黑色机身，侧光保留透明水仓",
+        "depth": "纯净浅暖白背景，商品与落影形成轻微前后层次",
+        "information_density": "low",
+        "composition_rationale": "搜索场景先建立准确商品身份，不让文字和道具干扰",
+        "content_modules": [
+          "hero_product"
+        ],
+        "product_multiplicity": "只呈现一台售卖咖啡机，不复制商品或配件"
+      },
+      "size": "2048x2048",
+      "prompt": "【页面任务】生成一张完整、可直接交付的 2048x2048 电商成图，平台为 Shopify，落点为 shopify-search-main / search_main，页面角色为 clean_search_hero。回答买家问题：“买家能否迅速认清商品与完整结构？”。本页唯一价值是：无文字完整整机建立商品身份。【商品身份】参考素材：asset-01、asset-02。商品身份摘要：黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份。必须锁定：黑色圆柱主体与底部杯仓比例、顶部圆形按键和侧面透明水仓位置、USB-C 接口位置、机身、水仓、杯仓和配件数量不变。【构图蓝图】商品尺度：商品占画面 72%-78%；商品数量与重复视图：只呈现一台售卖咖啡机，不复制商品或配件；主焦点：画面中心略偏下，完整机身为唯一焦点；文案区：平台无字首图，不设置文案区；信息层级：商品轮廓 > 水仓与按键细节 > 自然落影；内容模块：hero_product；构图原因：搜索场景先建立准确商品身份，不让文字和道具干扰。【文案系统】本页按平台落点要求保持无附加文案。逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线，标题稳重，参数信息清楚。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：把咖啡馆装进行囊；风格：温暖、克制、可信；色彩：#F1E7D6、#171717、#A96B3C、#F7F5F0；光线：干净棚拍主光勾勒黑色机身，侧光保留透明水仓；空间层次：纯净浅暖白背景，商品与落影形成轻微前后层次；图形语言：无装饰图标、仅保留真实柔和落影；信息密度：low。【负面约束】商品一致性规则：锁定黑色圆柱机身与杯仓比例、顶部按键、水仓和 USB-C 接口位置不漂移、不新增配件、咖啡流和场景只作视觉叙事。不得推断：未证实重量与续航、未证实加热能力、未证实兼容胶囊、未证实售后承诺。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": ""
+    },
+    {
+      "id": "page-02",
+      "placement_id": "shopify-media-square",
+      "surface": "gallery",
+      "role": "pressure_proof",
+      "composition_type": "detail",
+      "buyer_question": "核心规格是否有明确事实依据？",
+      "decision_ids": [
+        "decision-proof"
+      ],
+      "primary_decision_id": "decision-proof",
+      "unique_evidence": "用户规格表中的 15Bar 与咖啡流视觉关系",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [
+        "fact-pressure"
+      ],
+      "copy": {
+        "headline": {
+          "text": "15Bar 泵压",
+          "kind": "product_fact",
+          "fact_ids": [
+            "fact-pressure"
+          ]
+        },
+        "subheadline": {
+          "text": "让核心规格在第一屏被准确读懂",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "参数来自已确认的商品规格表",
+            "kind": "product_fact",
+            "fact_ids": [
+              "fact-pressure"
+            ]
+          },
+          {
+            "text": "咖啡流用于建立萃取场景联想",
+            "kind": "scenario_narrative",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-pressure"
+      ],
+      "visual_brief": {
+        "product_scale": "商品占画面约 58%，右下完整呈现",
+        "focal_zone": "机身与咖啡流交汇处形成视觉焦点",
+        "copy_zone": "左上 36% 参数标题区，左下两条证据说明",
+        "hierarchy": "15Bar 数字 > 规格解释 > 证据与场景说明",
+        "graphic_devices": [
+          "铜色咖啡流线",
+          "细线参数锚点"
+        ],
+        "lighting": "暖色侧光塑造机身，咖啡液高光克制真实",
+        "depth": "前景咖啡杯、中景商品、背景暖米渐层",
+        "information_density": "medium",
+        "composition_rationale": "用明确规格数字吸引注意，再用证据来源和场景边界建立可信度",
+        "content_modules": [
+          "macro_proof",
+          "callout"
+        ],
+        "product_multiplicity": "只呈现一台售卖咖啡机与一个咖啡杯，不能用复制商品制造丰富感"
+      },
+      "size": "2048x2048",
+      "prompt": "【页面任务】生成一张完整、可直接交付的 2048x2048 电商成图，平台为 Shopify，落点为 shopify-media-square / gallery，页面角色为 pressure_proof。回答买家问题：“核心规格是否有明确事实依据？”。本页唯一价值是：用户规格表中的 15Bar 与咖啡流视觉关系。【商品身份】参考素材：asset-01。商品身份摘要：黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份。必须锁定：黑色圆柱主体与底部杯仓比例、顶部圆形按键和侧面透明水仓位置、USB-C 接口位置、机身、水仓、杯仓和配件数量不变。【构图蓝图】商品尺度：商品占画面约 58%，右下完整呈现；商品数量与重复视图：只呈现一台售卖咖啡机与一个咖啡杯，不能用复制商品制造丰富感；主焦点：机身与咖啡流交汇处形成视觉焦点；文案区：左上 36% 参数标题区，左下两条证据说明；信息层级：15Bar 数字 > 规格解释 > 证据与场景说明；内容模块：macro_proof、callout；构图原因：用明确规格数字吸引注意，再用证据来源和场景边界建立可信度。【文案系统】headline：“15Bar 泵压”（product_fact，事实依据 fact-pressure）；subheadline：“让核心规格在第一屏被准确读懂”（safe_commercial）；supporting_points：“参数来自已确认的商品规格表”（product_fact，事实依据 fact-pressure）；supporting_points：“咖啡流用于建立萃取场景联想”（scenario_narrative）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线，标题稳重，参数信息清楚。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：把咖啡馆装进行囊；风格：温暖、克制、可信；色彩：#F1E7D6、#171717、#A96B3C、#F7F5F0；光线：暖色侧光塑造机身，咖啡液高光克制真实；空间层次：前景咖啡杯、中景商品、背景暖米渐层；图形语言：铜色咖啡流线、细线参数锚点；信息密度：medium。【负面约束】商品一致性规则：锁定黑色圆柱机身与杯仓比例、顶部按键、水仓和 USB-C 接口位置不漂移、不新增配件、咖啡流和场景只作视觉叙事。不得推断：未证实重量与续航、未证实加热能力、未证实兼容胶囊、未证实售后承诺。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": ""
+    },
+    {
+      "id": "page-03",
+      "placement_id": "shopify-media-square",
+      "surface": "gallery",
+      "role": "multi_angle_structure",
+      "composition_type": "angles",
+      "buyer_question": "买家能否迅速认清商品与完整结构？",
+      "decision_ids": [
+        "decision-identity"
+      ],
+      "primary_decision_id": "decision-identity",
+      "unique_evidence": "正面、侧面与背面共同证明机身、水仓和接口关系",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-structure"
+      ],
+      "copy": {
+        "headline": {
+          "text": "360° 看清每一处",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "机身、水仓与按键关系完整呈现",
+          "kind": "visual_fact",
+          "fact_ids": [
+            "fact-structure"
+          ]
+        },
+        "supporting_points": [
+          {
+            "text": "先看整体轮廓，再看侧面结构",
+            "kind": "category_education",
+            "fact_ids": []
+          },
+          {
+            "text": "不同视角保持同一商品比例",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-structure"
+      ],
+      "visual_brief": {
+        "product_scale": "三机位组合占画面约 68%",
+        "focal_zone": "正面主机居中，左右两侧角度形成三角关系",
+        "copy_zone": "顶部 24% 标题区，底部设置两条角度说明",
+        "hierarchy": "多角度标题 > 正面主机 > 左右结构说明",
+        "graphic_devices": [
+          "细线角度轨迹",
+          "小型视角标签"
+        ],
+        "lighting": "统一棚拍光向，透明水仓保留边缘高光",
+        "depth": "主机前后错位形成空间层次，背景不使用卡片拼贴",
+        "information_density": "medium",
+        "composition_rationale": "用一个完整构图同时解决多个角度，不做证件照九宫格",
+        "content_modules": [
+          "multi_angle_proof",
+          "callout"
+        ],
+        "product_multiplicity": "允许同一台咖啡机的三个标注明确的角度视图；这些是同一商品视图，不代表三台商品"
+      },
+      "size": "2048x2048",
+      "prompt": "【页面任务】生成一张完整、可直接交付的 2048x2048 电商成图，平台为 Shopify，落点为 shopify-media-square / gallery，页面角色为 multi_angle_structure。回答买家问题：“买家能否迅速认清商品与完整结构？”。本页唯一价值是：正面、侧面与背面共同证明机身、水仓和接口关系。【商品身份】参考素材：asset-01、asset-02。商品身份摘要：黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份。必须锁定：黑色圆柱主体与底部杯仓比例、顶部圆形按键和侧面透明水仓位置、USB-C 接口位置、机身、水仓、杯仓和配件数量不变。【构图蓝图】商品尺度：三机位组合占画面约 68%；商品数量与重复视图：允许同一台咖啡机的三个标注明确的角度视图；这些是同一商品视图，不代表三台商品；主焦点：正面主机居中，左右两侧角度形成三角关系；文案区：顶部 24% 标题区，底部设置两条角度说明；信息层级：多角度标题 > 正面主机 > 左右结构说明；内容模块：multi_angle_proof、callout；构图原因：用一个完整构图同时解决多个角度，不做证件照九宫格。【文案系统】headline：“360° 看清每一处”（safe_commercial）；subheadline：“机身、水仓与按键关系完整呈现”（visual_fact，事实依据 fact-structure）；supporting_points：“先看整体轮廓，再看侧面结构”（category_education）；supporting_points：“不同视角保持同一商品比例”（safe_commercial）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线，标题稳重，参数信息清楚。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：把咖啡馆装进行囊；风格：温暖、克制、可信；色彩：#F1E7D6、#171717、#A96B3C、#F7F5F0；光线：统一棚拍光向，透明水仓保留边缘高光；空间层次：主机前后错位形成空间层次，背景不使用卡片拼贴；图形语言：细线角度轨迹、小型视角标签；信息密度：medium。【负面约束】商品一致性规则：锁定黑色圆柱机身与杯仓比例、顶部按键、水仓和 USB-C 接口位置不漂移、不新增配件、咖啡流和场景只作视觉叙事。不得推断：未证实重量与续航、未证实加热能力、未证实兼容胶囊、未证实售后承诺。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": ""
+    },
+    {
+      "id": "page-04",
+      "placement_id": "shopify-media-square",
+      "surface": "gallery",
+      "role": "lifestyle_scene",
+      "composition_type": "scene",
+      "buyer_question": "商品进入办公室和旅行场景后是否容易理解？",
+      "decision_ids": [
+        "decision-use"
+      ],
+      "primary_decision_id": "decision-use",
+      "unique_evidence": "真实桌面尺度建立办公室与随行场景代入",
+      "references": [
+        "asset-01"
+      ],
+      "fact_ids": [],
+      "copy": {
+        "headline": {
+          "text": "想喝浓缩，不只在咖啡馆",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "办公室、露营、自驾，随场景切换",
+          "kind": "scenario_narrative",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "一个主场景讲清随行使用关系",
+            "kind": "safe_commercial",
+            "fact_ids": []
+          },
+          {
+            "text": "场景为 AI 渲染，商品结构以参考图为准",
+            "kind": "buyer_guidance",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "has_factual_claims": false,
+      "claim_fact_ids": [],
+      "visual_brief": {
+        "product_scale": "商品占画面约 52%，位于右中操作台",
+        "focal_zone": "商品与随行杯形成主焦点",
+        "copy_zone": "左侧 34% 情绪标题区，底部设置三枚场景导航词",
+        "hierarchy": "生活主张 > 商品与场景关系 > 场景导航",
+        "graphic_devices": [
+          "旅行路径细线",
+          "办公室、露营、自驾文字导航"
+        ],
+        "lighting": "清晨自然窗光与暖色补光，商品亮度高于环境",
+        "depth": "前景随行物件、中景商品、背景窗景逐层虚化",
+        "information_density": "medium",
+        "composition_rationale": "用一个可信场景建立生活代入，不用三宫格重复静物填页",
+        "content_modules": [
+          "lifestyle_scene",
+          "benefit_labels"
+        ],
+        "product_multiplicity": "只呈现一台咖啡机；办公室、露营、自驾仅作为文字导航，不复制三套场景商品"
+      },
+      "size": "2048x2048",
+      "prompt": "【页面任务】生成一张完整、可直接交付的 2048x2048 电商成图，平台为 Shopify，落点为 shopify-media-square / gallery，页面角色为 lifestyle_scene。回答买家问题：“商品进入办公室和旅行场景后是否容易理解？”。本页唯一价值是：真实桌面尺度建立办公室与随行场景代入。【商品身份】参考素材：asset-01。商品身份摘要：黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份。必须锁定：黑色圆柱主体与底部杯仓比例、顶部圆形按键和侧面透明水仓位置、USB-C 接口位置、机身、水仓、杯仓和配件数量不变。【构图蓝图】商品尺度：商品占画面约 52%，位于右中操作台；商品数量与重复视图：只呈现一台咖啡机；办公室、露营、自驾仅作为文字导航，不复制三套场景商品；主焦点：商品与随行杯形成主焦点；文案区：左侧 34% 情绪标题区，底部设置三枚场景导航词；信息层级：生活主张 > 商品与场景关系 > 场景导航；内容模块：lifestyle_scene、benefit_labels；构图原因：用一个可信场景建立生活代入，不用三宫格重复静物填页。【文案系统】headline：“想喝浓缩，不只在咖啡馆”（safe_commercial）；subheadline：“办公室、露营、自驾，随场景切换”（scenario_narrative）；supporting_points：“一个主场景讲清随行使用关系”（safe_commercial）；supporting_points：“场景为 AI 渲染，商品结构以参考图为准”（buyer_guidance）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线，标题稳重，参数信息清楚。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：把咖啡馆装进行囊；风格：温暖、克制、可信；色彩：#F1E7D6、#171717、#A96B3C、#F7F5F0；光线：清晨自然窗光与暖色补光，商品亮度高于环境；空间层次：前景随行物件、中景商品、背景窗景逐层虚化；图形语言：旅行路径细线、办公室、露营、自驾文字导航；信息密度：medium。【负面约束】商品一致性规则：锁定黑色圆柱机身与杯仓比例、顶部按键、水仓和 USB-C 接口位置不漂移、不新增配件、咖啡流和场景只作视觉叙事。不得推断：未证实重量与续航、未证实加热能力、未证实兼容胶囊、未证实售后承诺。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": ""
+    },
+    {
+      "id": "page-05",
+      "placement_id": "shopify-media-square",
+      "surface": "gallery",
+      "role": "usbc_detail",
+      "composition_type": "detail",
+      "buyer_question": "接口与操作流程是否容易核对？",
+      "decision_ids": [
+        "decision-selection"
+      ],
+      "primary_decision_id": "decision-selection",
+      "unique_evidence": "侧面实拍证明 USB-C 接口类型与位置",
+      "references": [
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-usbc"
+      ],
+      "copy": {
+        "headline": {
+          "text": "USB-C 充电接口",
+          "kind": "visual_fact",
+          "fact_ids": [
+            "fact-usbc"
+          ]
+        },
+        "subheadline": {
+          "text": "买前先看接口，再核对充电要求",
+          "kind": "buyer_guidance",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "接口位置来自侧面商品实拍",
+            "kind": "visual_fact",
+            "fact_ids": [
+              "fact-usbc"
+            ]
+          },
+          {
+            "text": "充电功率与时长以说明书为准",
+            "kind": "buyer_guidance",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-usbc"
+      ],
+      "visual_brief": {
+        "product_scale": "接口微距占画面约 54%，右下保留完整机身定位图",
+        "focal_zone": "USB-C 接口边缘高光为第一焦点",
+        "copy_zone": "左侧 38% 标题与买前核对区",
+        "hierarchy": "接口类型 > 接口位置 > 充电信息边界",
+        "graphic_devices": [
+          "机身定位缩略图",
+          "接口位置引导线",
+          "买前核对提示条"
+        ],
+        "lighting": "侧逆光突出接口轮廓，机身保持真实黑色层次",
+        "depth": "前景接口微距、中景整机定位、背景柔和退后",
+        "information_density": "medium",
+        "composition_rationale": "同时回答接口是什么、在哪里、还需核对什么",
+        "content_modules": [
+          "macro_proof",
+          "buyer_guidance"
+        ],
+        "product_multiplicity": "接口微距与整机定位图属于同一台商品的主图和辅助视图，不代表两台商品"
+      },
+      "size": "2048x2048",
+      "prompt": "【页面任务】生成一张完整、可直接交付的 2048x2048 电商成图，平台为 Shopify，落点为 shopify-media-square / gallery，页面角色为 usbc_detail。回答买家问题：“接口与操作流程是否容易核对？”。本页唯一价值是：侧面实拍证明 USB-C 接口类型与位置。【商品身份】参考素材：asset-02。商品身份摘要：黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份。必须锁定：黑色圆柱主体与底部杯仓比例、顶部圆形按键和侧面透明水仓位置、USB-C 接口位置、机身、水仓、杯仓和配件数量不变。【构图蓝图】商品尺度：接口微距占画面约 54%，右下保留完整机身定位图；商品数量与重复视图：接口微距与整机定位图属于同一台商品的主图和辅助视图，不代表两台商品；主焦点：USB-C 接口边缘高光为第一焦点；文案区：左侧 38% 标题与买前核对区；信息层级：接口类型 > 接口位置 > 充电信息边界；内容模块：macro_proof、buyer_guidance；构图原因：同时回答接口是什么、在哪里、还需核对什么。【文案系统】headline：“USB-C 充电接口”（visual_fact，事实依据 fact-usbc）；subheadline：“买前先看接口，再核对充电要求”（buyer_guidance）；supporting_points：“接口位置来自侧面商品实拍”（visual_fact，事实依据 fact-usbc）；supporting_points：“充电功率与时长以说明书为准”（buyer_guidance）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线，标题稳重，参数信息清楚。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：把咖啡馆装进行囊；风格：温暖、克制、可信；色彩：#F1E7D6、#171717、#A96B3C、#F7F5F0；光线：侧逆光突出接口轮廓，机身保持真实黑色层次；空间层次：前景接口微距、中景整机定位、背景柔和退后；图形语言：机身定位缩略图、接口位置引导线、买前核对提示条；信息密度：medium。【负面约束】商品一致性规则：锁定黑色圆柱机身与杯仓比例、顶部按键、水仓和 USB-C 接口位置不漂移、不新增配件、咖啡流和场景只作视觉叙事。不得推断：未证实重量与续航、未证实加热能力、未证实兼容胶囊、未证实售后承诺。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": ""
+    },
+    {
+      "id": "page-06",
+      "placement_id": "shopify-detail-portrait",
+      "surface": "detail",
+      "role": "three_step_process",
+      "composition_type": "process",
+      "buyer_question": "接口与操作流程是否容易核对？",
+      "decision_ids": [
+        "decision-selection"
+      ],
+      "primary_decision_id": "decision-selection",
+      "unique_evidence": "说明书中的加水、装粉、启动三步顺序",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-steps"
+      ],
+      "copy": {
+        "headline": {
+          "text": "三步完成萃取",
+          "kind": "product_fact",
+          "fact_ids": [
+            "fact-steps"
+          ]
+        },
+        "subheadline": {
+          "text": "加水、装粉、启动，流程一页看懂",
+          "kind": "product_fact",
+          "fact_ids": [
+            "fact-steps"
+          ]
+        },
+        "supporting_points": [
+          {
+            "text": "01 加水｜02 装粉｜03 启动",
+            "kind": "product_fact",
+            "fact_ids": [
+              "fact-steps"
+            ]
+          },
+          {
+            "text": "操作细节以随附说明书为准",
+            "kind": "buyer_guidance",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-steps"
+      ],
+      "visual_brief": {
+        "product_scale": "整机主视觉占顶部 36%，三步操作近景占下方 50%",
+        "focal_zone": "顶部整机与中轴咖啡流形成主焦点",
+        "copy_zone": "顶部左侧标题，三步模块内分别放短句",
+        "hierarchy": "三步标题 > 01/02/03 顺序 > 操作边界提示",
+        "graphic_devices": [
+          "纵向咖啡流动线",
+          "连续步骤编号",
+          "局部操作近景"
+        ],
+        "lighting": "三个步骤保持同一暖色光向和机身颜色",
+        "depth": "顶部主机、中段步骤、底部完成状态形成纵向推进",
+        "information_density": "medium_high",
+        "composition_rationale": "把说明书信息转成连续视觉流程，降低操作理解成本",
+        "content_modules": [
+          "process_steps",
+          "buyer_guidance"
+        ],
+        "product_multiplicity": "三个操作步骤展示同一台商品的时间序列，不得生成三台咖啡机或重复配件"
+      },
+      "size": "1536x2048",
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1536x2048 电商成图，平台为 Shopify，落点为 shopify-detail-portrait / detail，页面角色为 three_step_process。回答买家问题：“接口与操作流程是否容易核对？”。本页唯一价值是：说明书中的加水、装粉、启动三步顺序。【商品身份】参考素材：asset-01、asset-02。商品身份摘要：黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份。必须锁定：黑色圆柱主体与底部杯仓比例、顶部圆形按键和侧面透明水仓位置、USB-C 接口位置、机身、水仓、杯仓和配件数量不变。【构图蓝图】商品尺度：整机主视觉占顶部 36%，三步操作近景占下方 50%；商品数量与重复视图：三个操作步骤展示同一台商品的时间序列，不得生成三台咖啡机或重复配件；主焦点：顶部整机与中轴咖啡流形成主焦点；文案区：顶部左侧标题，三步模块内分别放短句；信息层级：三步标题 > 01/02/03 顺序 > 操作边界提示；内容模块：process_steps、buyer_guidance；构图原因：把说明书信息转成连续视觉流程，降低操作理解成本。【文案系统】headline：“三步完成萃取”（product_fact，事实依据 fact-steps）；subheadline：“加水、装粉、启动，流程一页看懂”（product_fact，事实依据 fact-steps）；supporting_points：“01 加水｜02 装粉｜03 启动”（product_fact，事实依据 fact-steps）；supporting_points：“操作细节以随附说明书为准”（buyer_guidance）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线，标题稳重，参数信息清楚。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：把咖啡馆装进行囊；风格：温暖、克制、可信；色彩：#F1E7D6、#171717、#A96B3C、#F7F5F0；光线：三个步骤保持同一暖色光向和机身颜色；空间层次：顶部主机、中段步骤、底部完成状态形成纵向推进；图形语言：纵向咖啡流动线、连续步骤编号、局部操作近景；信息密度：medium_high。【负面约束】商品一致性规则：锁定黑色圆柱机身与杯仓比例、顶部按键、水仓和 USB-C 接口位置不漂移、不新增配件、咖啡流和场景只作视觉叙事。不得推断：未证实重量与续航、未证实加热能力、未证实兼容胶囊、未证实售后承诺。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": ""
+    },
+    {
+      "id": "page-07",
+      "placement_id": "shopify-detail-portrait",
+      "surface": "detail",
+      "role": "package_inventory",
+      "composition_type": "package",
+      "buyer_question": "包装内容和购买边界是否清楚？",
+      "decision_ids": [
+        "decision-trust"
+      ],
+      "primary_decision_id": "decision-trust",
+      "unique_evidence": "包装实拍逐项证明主机、咖啡杯、量勺和充电线",
+      "references": [
+        "asset-03"
+      ],
+      "fact_ids": [
+        "fact-package"
+      ],
+      "copy": {
+        "headline": {
+          "text": "开箱前，先把配件看清",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "主机、咖啡杯、量勺、充电线",
+          "kind": "product_fact",
+          "fact_ids": [
+            "fact-package"
+          ]
+        },
+        "supporting_points": [
+          {
+            "text": "四项内容来自包装参考图",
+            "kind": "visual_fact",
+            "fact_ids": [
+              "fact-package"
+            ]
+          },
+          {
+            "text": "收货后建议按清单逐项核对",
+            "kind": "buyer_guidance",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-package"
+      ],
+      "visual_brief": {
+        "product_scale": "主机与四项内容平铺占画面约 64%",
+        "focal_zone": "主机居中，配件沿咖啡流弧线依次展开",
+        "copy_zone": "顶部 22% 标题区，右侧 24% 清单区",
+        "hierarchy": "开箱标题 > 四项包装清单 > 收货核对提示",
+        "graphic_devices": [
+          "编号清单",
+          "配件对应细线",
+          "收货核对提示"
+        ],
+        "lighting": "均匀顶光保证每件物品边界清晰",
+        "depth": "轻俯拍平铺，保持同一台面与真实落影",
+        "information_density": "medium_high",
+        "composition_rationale": "用完整合照与文字清单双重核对，减少到货预期差",
+        "content_modules": [
+          "package_inventory",
+          "buyer_guidance"
+        ],
+        "product_multiplicity": "严格呈现一套包装内容：一台主机、一个咖啡杯、一把量勺、一根充电线"
+      },
+      "size": "1536x2048",
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1536x2048 电商成图，平台为 Shopify，落点为 shopify-detail-portrait / detail，页面角色为 package_inventory。回答买家问题：“包装内容和购买边界是否清楚？”。本页唯一价值是：包装实拍逐项证明主机、咖啡杯、量勺和充电线。【商品身份】参考素材：asset-03。商品身份摘要：黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份。必须锁定：黑色圆柱主体与底部杯仓比例、顶部圆形按键和侧面透明水仓位置、USB-C 接口位置、机身、水仓、杯仓和配件数量不变。【构图蓝图】商品尺度：主机与四项内容平铺占画面约 64%；商品数量与重复视图：严格呈现一套包装内容：一台主机、一个咖啡杯、一把量勺、一根充电线；主焦点：主机居中，配件沿咖啡流弧线依次展开；文案区：顶部 22% 标题区，右侧 24% 清单区；信息层级：开箱标题 > 四项包装清单 > 收货核对提示；内容模块：package_inventory、buyer_guidance；构图原因：用完整合照与文字清单双重核对，减少到货预期差。【文案系统】headline：“开箱前，先把配件看清”（safe_commercial）；subheadline：“主机、咖啡杯、量勺、充电线”（product_fact，事实依据 fact-package）；supporting_points：“四项内容来自包装参考图”（visual_fact，事实依据 fact-package）；supporting_points：“收货后建议按清单逐项核对”（buyer_guidance）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线，标题稳重，参数信息清楚。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：把咖啡馆装进行囊；风格：温暖、克制、可信；色彩：#F1E7D6、#171717、#A96B3C、#F7F5F0；光线：均匀顶光保证每件物品边界清晰；空间层次：轻俯拍平铺，保持同一台面与真实落影；图形语言：编号清单、配件对应细线、收货核对提示；信息密度：medium_high。【负面约束】商品一致性规则：锁定黑色圆柱机身与杯仓比例、顶部按键、水仓和 USB-C 接口位置不漂移、不新增配件、咖啡流和场景只作视觉叙事。不得推断：未证实重量与续航、未证实加热能力、未证实兼容胶囊、未证实售后承诺。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": ""
+    },
+    {
+      "id": "page-08",
+      "placement_id": "shopify-detail-portrait",
+      "surface": "detail",
+      "role": "brand_closing",
+      "composition_type": "closing",
+      "buyer_question": "包装内容和购买边界是否清楚？",
+      "decision_ids": [
+        "decision-trust"
+      ],
+      "primary_decision_id": "decision-trust",
+      "unique_evidence": "整机、接口、操作与包装要点形成最终购买路径收束",
+      "references": [
+        "asset-01",
+        "asset-03"
+      ],
+      "fact_ids": [],
+      "copy": {
+        "headline": {
+          "text": "把咖啡馆装进行囊",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "subheadline": {
+          "text": "从结构、操作到配件，一套看明白",
+          "kind": "safe_commercial",
+          "fact_ids": []
+        },
+        "supporting_points": [
+          {
+            "text": "先确认使用需求，再核对商品信息",
+            "kind": "buyer_guidance",
+            "fact_ids": []
+          },
+          {
+            "text": "规格与服务以下单页面实际说明为准",
+            "kind": "buyer_guidance",
+            "fact_ids": []
+          }
+        ],
+        "microcopy": []
+      },
+      "has_factual_claims": false,
+      "claim_fact_ids": [],
+      "visual_brief": {
+        "product_scale": "整机与咖啡杯占画面中下部约 58%",
+        "focal_zone": "商品、咖啡杯和旅行袋形成稳定三角焦点",
+        "copy_zone": "顶部 30% 品牌收束区，底部保留两条购买提醒",
+        "hierarchy": "创意主题 > 信息回顾 > 下单前核对提醒",
+        "graphic_devices": [
+          "贯穿整套的咖啡流线",
+          "结构、操作、配件三枚回顾词"
+        ],
+        "lighting": "暖金夕光与深黑机身形成克制高级对比",
+        "depth": "前景咖啡杯、中景商品、背景旅行环境柔和虚化",
+        "information_density": "medium_high",
+        "composition_rationale": "用情绪主张收束，同时保留真实购买提醒，避免只做空泛氛围页",
+        "content_modules": [
+          "brand_closing",
+          "benefit_labels"
+        ],
+        "product_multiplicity": "只呈现一套售卖商品与已验证包装内容，不重复商品制造氛围"
+      },
+      "size": "1536x2048",
+      "prompt": "【页面任务】生成一张完整、可直接交付的 1536x2048 电商成图，平台为 Shopify，落点为 shopify-detail-portrait / detail，页面角色为 brand_closing。回答买家问题：“包装内容和购买边界是否清楚？”。本页唯一价值是：整机、接口、操作与包装要点形成最终购买路径收束。【商品身份】参考素材：asset-01、asset-03。商品身份摘要：黑色圆柱机身、顶部圆形按键、侧面透明水仓、USB-C 接口与杯仓比例共同锁定商品身份。必须锁定：黑色圆柱主体与底部杯仓比例、顶部圆形按键和侧面透明水仓位置、USB-C 接口位置、机身、水仓、杯仓和配件数量不变。【构图蓝图】商品尺度：整机与咖啡杯占画面中下部约 58%；商品数量与重复视图：只呈现一套售卖商品与已验证包装内容，不重复商品制造氛围；主焦点：商品、咖啡杯和旅行袋形成稳定三角焦点；文案区：顶部 30% 品牌收束区，底部保留两条购买提醒；信息层级：创意主题 > 信息回顾 > 下单前核对提醒；内容模块：brand_closing、benefit_labels；构图原因：用情绪主张收束，同时保留真实购买提醒，避免只做空泛氛围页。【文案系统】headline：“把咖啡馆装进行囊”（safe_commercial）；subheadline：“从结构、操作到配件，一套看明白”（safe_commercial）；supporting_points：“先确认使用需求，再核对商品信息”（buyer_guidance）；supporting_points：“规格与服务以下单页面实际说明为准”（buyer_guidance）逐字准确原生绘制，不省略支撑信息。字体气质：现代中文无衬线，标题稳重，参数信息清楚。文案必须与商品、光影和图形建立可见关系，不做顶部悬浮大字。【视觉执行】核心概念：把咖啡馆装进行囊；风格：温暖、克制、可信；色彩：#F1E7D6、#171717、#A96B3C、#F7F5F0；光线：暖金夕光与深黑机身形成克制高级对比；空间层次：前景咖啡杯、中景商品、背景旅行环境柔和虚化；图形语言：贯穿整套的咖啡流线、结构、操作、配件三枚回顾词；信息密度：medium_high。【负面约束】商品一致性规则：锁定黑色圆柱机身与杯仓比例、顶部按键、水仓和 USB-C 接口位置不漂移、不新增配件、咖啡流和场景只作视觉叙事。不得推断：未证实重量与续航、未证实加热能力、未证实兼容胶囊、未证实售后承诺。不改变商品结构、数量、颜色、Logo、接口、缝线或比例；不生成空白文案框、重复圆角卡片、PPT 式排版或与页面任务无关的道具。",
+      "output": ""
+    }
+  ],
+  "confirmation": {
+    "status": "pending",
+    "confirmed_at": "",
+    "method": "",
+    "plan_sha256": "",
+    "execution_manifest_sha256": ""
+  },
+  "generation_log": [],
+  "review": {
+    "status": "planned",
+    "reviewer_type": "",
+    "contact_sheet": "",
+    "contact_sheet_sha256": "",
+    "set_checks": {},
+    "pages": []
+  },
+  "plan_document": "plan.md"
+}

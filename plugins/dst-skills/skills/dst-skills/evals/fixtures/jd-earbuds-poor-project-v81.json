@@ -1,0 +1,803 @@
+{
+  "schema_version": "8.1",
+  "skill_version": "8.1.0",
+  "status": "review",
+  "plan_document": "plan.md",
+  "product": {
+    "name": "米白环形挂耳外观耳机（参考图款）",
+    "category": "数码影音 / 环形挂耳外观耳机",
+    "identity_summary": "以 asset-01 和 asset-02 锁定：一对奶油米白耳机，每只由圆润水滴形主机、完整环形结构和下方圆润长水滴形部件组成；搭配一只同色圆角鹅卵石形充电盒，具有上下壳分缝、正面开合细节和顶部中央细长椭圆装饰牌。品牌字样不可辨认，不写品牌名。",
+    "identity_lock": [
+      "始终保持一对左右耳机，不增加或减少数量",
+      "每只耳机保持圆润水滴形主机、完整环形结构和下方圆润长水滴形部件的比例关系",
+      "保持奶油米白配色、可见的小型深色孔位、浅金色小细节和模糊品牌标记的位置",
+      "充电盒保持圆角鹅卵石轮廓、上下壳分缝、正面开合细节和顶部中央细长椭圆装饰牌",
+      "不猜写品牌，不新增显示屏、挂绳、耳塞套、充电线、麦克风杆或任何配件",
+      "不生成人物佩戴、耳部特写、参数图、功能图标、包装或服务承诺"
+    ],
+    "source_diagnosis": [
+      "asset-01 为 476x680 竖图，带黑色圆角外框，不能直接作为京东搜索首图",
+      "asset-02 是旧版广告成图，文字和商品拥挤；其中数字不作为本次消费者文案",
+      "两张图可共同证明耳机和充电盒的外形，但没有可用的品牌、型号、佩戴方式、接口、尺寸或服务证据"
+    ],
+    "design_opportunities": [
+      "去掉黑框，重建纯白搜索首图和清爽数码商业光线",
+      "基于双参考图渲染多角度、耳机与充电盒组合及非佩戴日常静物场景",
+      "用云白、雾蓝、浅香槟金建立统一视觉，避免旧广告的大字与拥挤排版"
+    ]
+  },
+  "target": {
+    "platform": "京东",
+    "market": "CN",
+    "use": "搜索首图、方形商品图库与竖向详情模块安全版完整套图",
+    "full_set": true,
+    "mode": "standard",
+    "platform_validation": "design_recommendation",
+    "placements": [
+      {
+        "id": "jd-search-main",
+        "name": "京东搜索/列表首图",
+        "surface": "search_main",
+        "selected_size": "1254x1254",
+        "aspect_ratio": "1:1",
+        "quantity": 1,
+        "basis": "当前公开资料可确认京东商品主图落点；1200x1200 为兼容 Image 2 的设计建议，上传前以当前类目后台为准",
+        "research_ids": [
+          "jd-main-image-surface",
+          "jd-publish-surface",
+          "image2-size-contract"
+        ]
+      },
+      {
+        "id": "jd-square-gallery",
+        "name": "京东方形商品图库",
+        "surface": "gallery",
+        "selected_size": "1254x1254",
+        "aspect_ratio": "1:1",
+        "quantity": 4,
+        "basis": "方形图库设计建议，尺寸兼容 Image 2；上传前以当前类目后台为准",
+        "research_ids": [
+          "jd-publish-surface",
+          "image2-size-contract"
+        ]
+      },
+      {
+        "id": "jd-detail-module",
+        "name": "京东移动端竖向详情模块",
+        "surface": "detail",
+        "selected_size": "1086x1448",
+        "aspect_ratio": "3:4",
+        "quantity": 3,
+        "basis": "纵向详情模块设计建议，不代表京东后台统一硬规格；上传前需复核店铺内容区",
+        "research_ids": [
+          "jd-publish-surface",
+          "image2-size-contract"
+        ]
+      }
+    ]
+  },
+  "source_assets": [
+    {
+      "id": "asset-01",
+      "file": "source/reference-01.png",
+      "sha256": "86d2c0eaecd62f1747d0435c551f338f2c0177307bde5af17ed20d68a2637801",
+      "role": [
+        "商品身份主参考",
+        "耳机与充电盒组合角度",
+        "配色参考"
+      ],
+      "proves": [
+        "米白色外观",
+        "一对环形结构耳机",
+        "圆角鹅卵石形充电盒",
+        "耳机与充电盒的相对造型和配色"
+      ],
+      "limitations": [
+        "476x680 低分辨率",
+        "黑色圆角外框",
+        "品牌和接口模糊",
+        "充电盒只见有限角度",
+        "无可用参数"
+      ]
+    },
+    {
+      "id": "asset-02",
+      "file": "source/reference-02.png",
+      "sha256": "1b204240364336024822de699946bc9a8c65e3b5292f085834fe0dfcaa9a89b5",
+      "role": [
+        "商品结构补充参考",
+        "旧版广告图",
+        "日常场景参考"
+      ],
+      "proves": [
+        "耳机另一侧可见孔位与外壳结构",
+        "耳机和充电盒的另一角度",
+        "通勤、旅行、居家场景文字"
+      ],
+      "limitations": [
+        "748x1170 低清广告成图",
+        "文字和商品拥挤",
+        "没有真实佩戴、尺寸、包装、接口或售后证据",
+        "数字参数存在主体和口径不明问题，本次不使用"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-visible-product",
+      "text": "画面可见一对奶油米白色耳机，每只具有圆润水滴形主机、环形结构和下方圆润长水滴形部件。",
+      "source": "visible",
+      "source_ref": "asset-01,asset-02",
+      "evidence_status": "verified",
+      "claim_scope": "只证明现有素材可见的颜色、数量和外观结构；不证明佩戴方式、功能或性能",
+      "approved_for_copy": true
+    },
+    {
+      "id": "fact-visible-case",
+      "text": "画面可见一只与耳机同色的圆角鹅卵石形充电盒，具有上下壳分缝、正面开合细节和顶部中央细长椭圆装饰牌。",
+      "source": "visible",
+      "source_ref": "asset-01,asset-02",
+      "evidence_status": "verified",
+      "claim_scope": "只证明充电盒可见外观与耳机组合关系；不证明电池、接口或包装内含物",
+      "approved_for_copy": true
+    },
+    {
+      "id": "fact-visible-logo-limit",
+      "text": "耳机与充电盒上存在品牌样式标记，但字样无法准确辨认。",
+      "source": "visible",
+      "source_ref": "asset-01,asset-02",
+      "evidence_status": "verified",
+      "claim_scope": "只能作为不猜写品牌的执行限制，不能用于消费者文案",
+      "approved_for_copy": false
+    },
+    {
+      "id": "fact-use-context",
+      "text": "旧广告素材提及通勤、旅行、居家三个日常场景。",
+      "source": "visible",
+      "source_ref": "asset-02",
+      "evidence_status": "source_claim",
+      "claim_scope": "只允许作为非佩戴、无功能承诺的静物氛围场景；不证明运动稳固、防水、降噪或安全听音",
+      "approved_for_copy": true
+    },
+    {
+      "id": "fact-safe-scope",
+      "text": "用户明确要求删除所有续航、参数、功能、包装和售后文案，只按商品可见外观制作安全版套图。",
+      "source": "user",
+      "source_ref": "user_message_2026-07-16",
+      "evidence_status": "verified",
+      "claim_scope": "本次交付不包含上述未证实信息，也不包含人物佩戴、品牌型号或接口说明",
+      "approved_for_copy": false
+    }
+  ],
+  "research": [
+    {
+      "id": "jd-main-image-surface",
+      "kind": "platform_delivery",
+      "source_type": "official",
+      "url": "https://jos.jd.com/jdunion",
+      "checked_at": "2026-07-16",
+      "finding": "京东官方公开资料表明商品信息包含主图字段，可确认独立商品主图落点；该页面未给出本类目统一上传像素。"
+    },
+    {
+      "id": "jd-publish-surface",
+      "kind": "platform_delivery",
+      "source_type": "official",
+      "url": "https://jos.jd.com/apilist?apiGroupId=3792&apiGroupName=B2C-%E5%95%86%E5%93%81-%E5%95%86%E5%93%81%E5%8F%91%E5%B8%831.0",
+      "checked_at": "2026-07-16",
+      "finding": "京东宙斯官方存在独立 B2C 商品发布 API 分组；公开页面需要登录或 JavaScript，无法据此确认本类目精确像素。"
+    },
+    {
+      "id": "image2-size-contract",
+      "kind": "generation_capability",
+      "source_type": "official",
+      "url": "https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide",
+      "checked_at": "2026-07-16",
+      "finding": "1200x1200 与 1200x1600 均符合当前 Image 2 的尺寸合同。"
+    }
+  ],
+  "decision_map": [
+    {
+      "id": "decision-identity",
+      "question": "买家能否第一眼认清一对耳机与同色充电盒的外形？",
+      "dimension": "identity",
+      "claim_type": "product_fact",
+      "priority": "high",
+      "status": "covered",
+      "basis": "visible",
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case"
+      ],
+      "page_ids": [
+        "page-01",
+        "page-02"
+      ],
+      "reason": "纯白首图和方形定位页分别建立无干扰识别与米白环形外观记忆点"
+    },
+    {
+      "id": "decision-usage-context",
+      "question": "不展示佩戴和功能的前提下，商品可怎样进入通勤与旅行的日常静物场景？",
+      "dimension": "usage_fit",
+      "claim_type": "creative_simulation",
+      "priority": "high",
+      "status": "covered",
+      "basis": "model_inferred",
+      "fact_ids": [
+        "fact-use-context"
+      ],
+      "page_ids": [
+        "page-06",
+        "page-07"
+      ],
+      "reason": "仅基于原素材提到的场景进行非佩戴静物渲染，不表达性能、适配或真实佩戴关系"
+    },
+    {
+      "id": "decision-structure-proof",
+      "question": "环形结构、左右耳机和充电盒开合外观是否看得清？",
+      "dimension": "proof",
+      "claim_type": "product_fact",
+      "priority": "high",
+      "status": "covered",
+      "basis": "visible",
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case"
+      ],
+      "page_ids": [
+        "page-03",
+        "page-04"
+      ],
+      "reason": "多角度耳机页与开合组合页分别提供不可重复的可见结构证据"
+    },
+    {
+      "id": "decision-selection-excluded",
+      "question": "规格、接口、SKU 和包装信息如何帮助选择？",
+      "dimension": "selection",
+      "claim_type": "scope_exclusion",
+      "priority": "medium",
+      "status": "out_of_scope",
+      "basis": "out_of_scope",
+      "scope_basis": "user_explicit",
+      "scope_ref": "用户于 2026-07-16 明确要求删除所有参数、包装文案，只按商品可见外观制作安全版套图。",
+      "fact_ids": [],
+      "page_ids": [],
+      "reason": "本次不将缺失规格、接口、SKU 或包装伪造成外观事实"
+    },
+    {
+      "id": "decision-trust-excluded",
+      "question": "品牌型号、售后和服务承诺是否可追溯？",
+      "dimension": "trust",
+      "claim_type": "scope_exclusion",
+      "priority": "medium",
+      "status": "out_of_scope",
+      "basis": "out_of_scope",
+      "scope_basis": "user_explicit",
+      "scope_ref": "用户于 2026-07-16 明确要求删除所有售后文案，并限定只按商品可见外观制作安全版套图。",
+      "fact_ids": [],
+      "page_ids": [],
+      "reason": "不猜写无法辨认的品牌，也不添加质保、售后或服务承诺"
+    },
+    {
+      "id": "decision-aesthetic",
+      "question": "米白外观如何形成统一、克制的数码审美记忆？",
+      "dimension": "benefit",
+      "claim_type": "style_recommendation",
+      "priority": "medium",
+      "status": "covered",
+      "basis": "model_inferred",
+      "fact_ids": [],
+      "page_ids": [
+        "page-05",
+        "page-08"
+      ],
+      "reason": "用细节近赏与居家收束形成审美印象，不把风格当作功能承诺"
+    }
+  ],
+  "visual_direction": {
+    "positioning": "以米白环形耳机与同色充电盒的可见外观建立清爽、克制的第一印象。",
+    "audience": [
+      "偏好简约米白数码外观的日常用户",
+      "希望先看清耳机与充电盒外观的买家"
+    ],
+    "purchase_motivations": [
+      "米白耳机与同色充电盒形成统一外观",
+      "环形结构与常见耳机形成视觉区分"
+    ],
+    "purchase_barriers": [
+      "原图低清且有黑框",
+      "品牌、佩戴方式、参数、功能、包装和服务没有可靠资料"
+    ],
+    "creative_concept": "云白随行：以柔光、环形曲线和生活静物将可见商品外观串成一套清爽数码视觉。",
+    "message_hierarchy": [
+      "先认清一对耳机与充电盒",
+      "再看清环形结构和开合外观",
+      "最后进入无功能承诺的通勤、旅行与居家静物场景"
+    ],
+    "style": "清爽、克制、年轻；现代数码商业摄影，不做促销大字报。",
+    "palette": [
+      "#F8F5EE 云白",
+      "#DCECF7 雾蓝",
+      "#DCC9A8 浅香槟金",
+      "#2B2B2B 深灰黑"
+    ],
+    "typography": "现代中文无衬线；标题简洁有力，避免描边、艺术字和促销红。",
+    "layout_system": [
+      "首图纯白无文案",
+      "方图每页只解决一个外观问题",
+      "竖图通过真实静物空间和柔光叙事，不使用卡片堆叠"
+    ],
+    "consistency_rules": [
+      "严格锁定颜色、数量、三段耳机结构、孔位位置与充电盒轮廓",
+      "只生成非佩戴人物或无人物静物场景",
+      "不出现品牌名、型号、参数、续航、功能、接口、包装、售后或服务承诺",
+      "中文文字必须由图像模型原生完成；错字、商品漂移或模板感需返工"
+    ]
+  },
+  "pages": [
+    {
+      "id": "page-01",
+      "placement_id": "jd-search-main",
+      "surface": "search_main",
+      "role": "clean_search_hero",
+      "composition_type": "hero",
+      "buyer_question": "能否一眼认清耳机和充电盒？",
+      "decision_ids": [
+        "decision-identity"
+      ],
+      "primary_decision_id": "decision-identity",
+      "unique_evidence": "唯一用纯白无干扰完整主体展示一对耳机与闭合充电盒",
+      "has_factual_claims": false,
+      "claim_fact_ids": [],
+      "size": "1254x1254",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case",
+        "fact-visible-logo-limit"
+      ],
+      "copy": [],
+      "visual_brief": "纯白无文案搜索首图；一对耳机悬浮于闭合充电盒上方，商品占画面约七成，柔和自然落影。",
+      "prompt": "生成一张完整 1200x1200 京东搜索首图，直接作为无文案商品首图交付。以 asset-01 和 asset-02 为同一商品参考，一对奶油米白耳机自然悬浮于闭合充电盒上方；严格保持每只耳机的圆润水滴形主机、完整环形结构、下方圆润长水滴形部件、小型深色孔位与浅金色小细节，充电盒保持圆角鹅卵石轮廓、上下壳分缝、正面开合细节和顶部中央细长椭圆装饰牌。纯白无缝商业摄影背景，柔和自然落影，边缘清晰，四周留足呼吸空间。不要文字、价格、图标、边框、人物、手部、耳朵、品牌名、参数、功能、包装或任何多余配件。",
+      "output": "images/page-01-clean-search-hero.png"
+    },
+    {
+      "id": "page-02",
+      "placement_id": "jd-square-gallery",
+      "surface": "gallery",
+      "role": "positioning_hero",
+      "composition_type": "hero",
+      "buyer_question": "这款耳机的可见外观有什么记忆点？",
+      "decision_ids": [
+        "decision-identity"
+      ],
+      "primary_decision_id": "decision-identity",
+      "unique_evidence": "唯一用雾蓝云白主视觉突出米白色与环形外观",
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-visible-product"
+      ],
+      "size": "1254x1254",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case"
+      ],
+      "copy": [
+        "米白环形耳机",
+        "日常随行"
+      ],
+      "visual_brief": "雾蓝到云白的通透空间；耳机在右中形成上升弧线，充电盒位于下方，标题与耳机曲线呼应。",
+      "prompt": "生成一张完整 1200x1200 京东方形商品定位图。以 asset-01 和 asset-02 为商品身份参考，严格保持一对米白耳机的圆润水滴形主机、环形结构、下方圆润长水滴形部件和同色鹅卵石形充电盒。雾蓝到云白的通透空间，一对耳机在右中形成轻微上升动势，充电盒位于中下方，真实柔光和少量浅香槟金点缀体现清爽数码质感。图内原生、逐字准确绘制主标题“米白环形耳机”和副标题“日常随行”，标题位于左上，深灰黑现代中文无衬线。不要促销贴纸、价格、品牌名、参数、功能、包装、售后、人物佩戴、卡片堆叠或新增部件。",
+      "output": "images/page-02-positioning-hero.png"
+    },
+    {
+      "id": "page-03",
+      "placement_id": "jd-square-gallery",
+      "surface": "gallery",
+      "role": "multi_angle_structure",
+      "composition_type": "angles",
+      "buyer_question": "左右耳机的内外侧和环形结构是否看得清？",
+      "decision_ids": [
+        "decision-structure-proof"
+      ],
+      "primary_decision_id": "decision-structure-proof",
+      "unique_evidence": "唯一用左右耳机不同视角展示环形结构和可见孔位",
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-visible-product"
+      ],
+      "size": "1254x1254",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-logo-limit"
+      ],
+      "copy": [
+        "环形耳机结构",
+        "多角度展示"
+      ],
+      "visual_brief": "两只耳机以内外侧三分之二视角形成对角线，靠真实边缘光呈现结构，不做九宫格拼贴。",
+      "prompt": "生成一张完整 1200x1200 京东方形多角度结构图。以 asset-01 和 asset-02 为共同参考，只展示同一对米白耳机：左耳机为外侧三分之二视角，右耳机为内侧三分之二视角，二者沿右上到左下形成空间层次；严格保持圆润水滴形主机、完整环形结构、下方圆润长水滴形部件、可见孔位和浅金色小细节。背景为云白和浅灰弧面摄影棚，柔和边缘光强调轮廓。图内原生、逐字准确绘制“环形耳机结构”和“多角度展示”，标题位于左上。不要证件照九宫格、放大镜圆框、品牌名、参数、功能、包装、售后或新增部件。",
+      "output": "images/page-03-multi-angle-structure.png"
+    },
+    {
+      "id": "page-04",
+      "placement_id": "jd-square-gallery",
+      "surface": "gallery",
+      "role": "charging_case_detail",
+      "composition_type": "detail",
+      "buyer_question": "耳机与充电盒的组合和可见开合关系是否清楚？",
+      "decision_ids": [
+        "decision-structure-proof"
+      ],
+      "primary_decision_id": "decision-structure-proof",
+      "unique_evidence": "唯一用半开充电盒近景展示耳机与鹅卵石形盒体的组合关系",
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case"
+      ],
+      "size": "1254x1254",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case",
+        "fact-visible-logo-limit"
+      ],
+      "copy": [
+        "耳机与充电盒",
+        "同色组合"
+      ],
+      "visual_brief": "半开充电盒位于中心；一只耳机在盒内、另一只在盒旁，用柔和顶光展示分缝与组合外观。",
+      "prompt": "生成一张完整 1200x1200 京东方形充电盒细节图。以 asset-01 的半开充电盒和 asset-02 的闭合外形为参考，严格保持同一只米白圆角鹅卵石形充电盒、上下壳分缝、正面开合细节和顶部中央细长椭圆装饰牌；充电盒半开位于画面中心，一只同款耳机自然置于盒内，另一只放在盒旁，耳机保持圆润主机、环形结构和下方长水滴形部件。暖灰白摄影台面与柔和顶光，真实落影展示可见组合关系。图内原生、逐字准确绘制“耳机与充电盒”和“同色组合”，文字位于左上。不要品牌名、参数、功能、接口标注、充电线、包装、售后或卡片堆叠。",
+      "output": "images/page-04-charging-case-detail.png"
+    },
+    {
+      "id": "page-05",
+      "placement_id": "jd-square-gallery",
+      "surface": "gallery",
+      "role": "material_form_detail",
+      "composition_type": "detail",
+      "buyer_question": "米白外观在近景中呈现怎样的视觉质感？",
+      "decision_ids": [
+        "decision-aesthetic"
+      ],
+      "primary_decision_id": "decision-aesthetic",
+      "unique_evidence": "唯一以微距柔光呈现米白外观、环形曲线和浅金色小细节",
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-visible-product"
+      ],
+      "size": "1254x1254",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case"
+      ],
+      "copy": [
+        "米白圆润外观",
+        "细节近赏"
+      ],
+      "visual_brief": "一只耳机微距前景、充电盒虚化后景；利用柔光和弧线阴影强化圆润外观，画面克制干净。",
+      "prompt": "生成一张完整 1200x1200 京东方形外观细节图。以 asset-01 和 asset-02 为参考，一只同款米白耳机位于微距前景，完整保留圆润水滴形主机、环形结构、下方圆润长水滴形部件、可见孔位与浅金色小细节；同色鹅卵石形充电盒作为柔和虚化后景，保持其顶部细长椭圆装饰牌和分缝。云白摄影台、轻柔侧光、细腻弧线阴影，体现圆润外观，不夸张材质性能。图内原生、逐字准确绘制“米白圆润外观”和“细节近赏”，标题位于上方。不要品牌名、参数、功能、包装、售后、材质性能宣称、人物或新增部件。",
+      "output": "images/page-05-material-form-detail.png"
+    },
+    {
+      "id": "page-06",
+      "placement_id": "jd-detail-module",
+      "surface": "detail",
+      "role": "commute_still_life",
+      "composition_type": "detail",
+      "buyer_question": "在不展示佩戴的前提下，商品如何进入通勤桌面场景？",
+      "decision_ids": [
+        "decision-usage-context"
+      ],
+      "primary_decision_id": "decision-usage-context",
+      "unique_evidence": "唯一用通勤桌面静物表现耳机与充电盒的日常视觉关联",
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-use-context",
+        "fact-visible-product"
+      ],
+      "size": "1086x1448",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case",
+        "fact-use-context"
+      ],
+      "copy": [
+        "通勤场景",
+        "米白外观"
+      ],
+      "visual_brief": "清晨通勤桌面静物；闭合充电盒与一对耳机置于浅灰托盘旁，不出现人物耳部、功能图标或性能文字。",
+      "prompt": "生成一张完整 1200x1600 京东竖向详情静物图。以 asset-01 和 asset-02 的同一款米白耳机和充电盒为商品参考，清晨通勤桌面静物：闭合鹅卵石形充电盒与一对耳机置于浅灰托盘和简约纸质笔记本旁，耳机严格保持圆润主机、环形结构、下方长水滴形部件和可见孔位，充电盒保持分缝和顶部中央细长椭圆装饰牌。雾蓝自然晨光从侧面照入，商品在画面中部清晰可见。图内原生、逐字准确绘制“通勤场景”和“米白外观”，标题位于上方。不要人物佩戴、品牌名、参数、续航、功能、接口、包装、售后、价格、图标或新增配件。",
+      "output": "images/page-06-commute-still-life.png"
+    },
+    {
+      "id": "page-07",
+      "placement_id": "jd-detail-module",
+      "surface": "detail",
+      "role": "travel_still_life",
+      "composition_type": "scene",
+      "buyer_question": "商品在旅行静物场景中如何保持清晰识别？",
+      "decision_ids": [
+        "decision-usage-context"
+      ],
+      "primary_decision_id": "decision-usage-context",
+      "unique_evidence": "唯一用旅行桌面与柔和窗光形成非佩戴的场景代入",
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-use-context",
+        "fact-visible-product",
+        "fact-visible-case"
+      ],
+      "size": "1086x1448",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case",
+        "fact-use-context"
+      ],
+      "copy": [
+        "旅行场景",
+        "耳机与充电盒"
+      ],
+      "visual_brief": "靠窗旅行桌面静物；耳机和闭合充电盒在前景，虚化旅行笔记与窗景仅作环境，不出现人物佩戴。",
+      "prompt": "生成一张完整 1200x1600 京东竖向旅行静物图。以 asset-01 和 asset-02 为身份参考，靠窗旅行桌面前景清晰摆放一对米白耳机与闭合鹅卵石形充电盒；严格保持耳机三段结构、数量、颜色、可见孔位，以及充电盒轮廓、分缝和顶部中央细长椭圆装饰牌。背景只保留虚化旅行笔记和窗外柔和天空作为环境，不让道具遮挡商品。图内原生、逐字准确绘制“旅行场景”和“耳机与充电盒”，标题位于上部留白。不要人物佩戴、品牌名、参数、功能、接口、包装、售后、行李清单或任何性能承诺。",
+      "output": "images/page-07-travel-still-life.png"
+    },
+    {
+      "id": "page-08",
+      "placement_id": "jd-detail-module",
+      "surface": "detail",
+      "role": "home_lifestyle_closing",
+      "composition_type": "closing",
+      "buyer_question": "整套页面最后留下怎样的外观记忆？",
+      "decision_ids": [
+        "decision-aesthetic"
+      ],
+      "primary_decision_id": "decision-aesthetic",
+      "unique_evidence": "唯一用黄昏居家静物将云白配色和环形曲线收束为情绪记忆",
+      "has_factual_claims": true,
+      "claim_fact_ids": [
+        "fact-use-context"
+      ],
+      "size": "1086x1448",
+      "references": [
+        "asset-01",
+        "asset-02"
+      ],
+      "fact_ids": [
+        "fact-visible-product",
+        "fact-visible-case",
+        "fact-use-context"
+      ],
+      "copy": [
+        "居家片刻",
+        "云白随行"
+      ],
+      "visual_brief": "黄昏窗边的克制收束；耳机与闭合充电盒置于桌面前景，暖金夕光与雾蓝阴影形成安静节奏。",
+      "prompt": "生成一张完整 1200x1600 京东竖向收束页。以 asset-01 和 asset-02 的同款米白耳机与闭合鹅卵石形充电盒为唯一售卖商品，商品置于黄昏窗边桌面前景，耳机与充电盒形成自然环形构图，严格保持一对数量、圆润主机、环形结构、下方长水滴形部件、可见孔位、米白颜色和充电盒分缝。暖金夕光与雾蓝阴影形成安静的居家静物氛围。图内原生、逐字准确绘制“居家片刻”和“云白随行”，标题位于上方窗光区域。不要人物佩戴、品牌名、型号、参数、续航、功能、接口、包装、售后、价格、图标或新增部件。",
+      "output": "images/page-08-home-lifestyle-closing.png"
+    }
+  ],
+  "confirmation": {
+    "status": "confirmed",
+    "confirmed_at": "2026-07-16T13:14:11+08:00",
+    "method": "用户消息：确认按安全版 8 张生成"
+  },
+  "generation_log": [
+    {
+      "page_id": "page-01",
+      "tool": "image_gen.imagegen",
+      "model": "not_returned_by_imagegen_tool",
+      "request_id": "not_returned_by_imagegen_tool",
+      "generated_at": "2026-07-16T13:14:11+08:00",
+      "prompt": "生成一张完整 1200x1200 京东搜索首图，直接作为无文案商品首图交付。以 asset-01 和 asset-02 为同一商品参考，一对奶油米白耳机自然悬浮于闭合充电盒上方；严格保持每只耳机的圆润水滴形主机、完整环形结构、下方圆润长水滴形部件、小型深色孔位与浅金色小细节，充电盒保持圆角鹅卵石轮廓、上下壳分缝、正面开合细节和顶部中央细长椭圆装饰牌。纯白无缝商业摄影背景，柔和自然落影，边缘清晰，四周留足呼吸空间。不要文字、价格、图标、边框、人物、手部、耳朵、品牌名、参数、功能、包装或任何多余配件。",
+      "source_asset_ids": [
+        "asset-01",
+        "asset-02"
+      ],
+      "output": "images/page-01-clean-search-hero.png",
+      "output_sha256": "64e9b1df3b9b3e19a83087069c9681da8e986153887bf7119264b7adc509725b",
+      "post_processing": []
+    },
+    {
+      "page_id": "page-02",
+      "tool": "image_gen.imagegen",
+      "model": "not_returned_by_imagegen_tool",
+      "request_id": "not_returned_by_imagegen_tool",
+      "generated_at": "2026-07-16T13:14:11+08:00",
+      "prompt": "生成一张完整 1200x1200 京东方形商品定位图。以 asset-01 和 asset-02 为商品身份参考，严格保持一对米白耳机的圆润水滴形主机、环形结构、下方圆润长水滴形部件和同色鹅卵石形充电盒。雾蓝到云白的通透空间，一对耳机在右中形成轻微上升动势，充电盒位于中下方，真实柔光和少量浅香槟金点缀体现清爽数码质感。图内原生、逐字准确绘制主标题“米白环形耳机”和副标题“日常随行”，标题位于左上，深灰黑现代中文无衬线。不要促销贴纸、价格、品牌名、参数、功能、包装、售后、人物佩戴、卡片堆叠或新增部件。",
+      "source_asset_ids": [
+        "asset-01",
+        "asset-02"
+      ],
+      "output": "images/page-02-positioning-hero.png",
+      "output_sha256": "4b3bdef244e02a00b1374be093e5ada57dcfb9fa3eed37ca224be59f4c7da947",
+      "post_processing": []
+    },
+    {
+      "page_id": "page-03",
+      "tool": "image_gen.imagegen",
+      "model": "not_returned_by_imagegen_tool",
+      "request_id": "not_returned_by_imagegen_tool",
+      "generated_at": "2026-07-16T13:14:11+08:00",
+      "prompt": "生成一张完整 1200x1200 京东方形多角度结构图。以 asset-01 和 asset-02 为共同参考，只展示同一对米白耳机：左耳机为外侧三分之二视角，右耳机为内侧三分之二视角，二者沿右上到左下形成空间层次；严格保持圆润水滴形主机、完整环形结构、下方圆润长水滴形部件、可见孔位和浅金色小细节。背景为云白和浅灰弧面摄影棚，柔和边缘光强调轮廓。图内原生、逐字准确绘制“环形耳机结构”和“多角度展示”，标题位于左上。不要证件照九宫格、放大镜圆框、品牌名、参数、功能、包装、售后或新增部件。",
+      "source_asset_ids": [
+        "asset-01",
+        "asset-02"
+      ],
+      "output": "images/page-03-multi-angle-structure.png",
+      "output_sha256": "1cbabebb1f8b8f68f8864d0ce05a62e7b1100debafa1cd93a41ea3b12864dc8f",
+      "post_processing": []
+    },
+    {
+      "page_id": "page-04",
+      "tool": "image_gen.imagegen",
+      "model": "not_returned_by_imagegen_tool",
+      "request_id": "not_returned_by_imagegen_tool",
+      "generated_at": "2026-07-16T13:14:11+08:00",
+      "prompt": "生成一张完整 1200x1200 京东方形充电盒细节图。以 asset-01 的半开充电盒和 asset-02 的闭合外形为参考，严格保持同一只米白圆角鹅卵石形充电盒、上下壳分缝、正面开合细节和顶部中央细长椭圆装饰牌；充电盒半开位于画面中心，一只同款耳机自然置于盒内，另一只放在盒旁，耳机保持圆润主机、环形结构和下方长水滴形部件。暖灰白摄影台面与柔和顶光，真实落影展示可见组合关系。图内原生、逐字准确绘制“耳机与充电盒”和“同色组合”，文字位于左上。不要品牌名、参数、功能、接口标注、充电线、包装、售后或卡片堆叠。",
+      "source_asset_ids": [
+        "asset-01",
+        "asset-02"
+      ],
+      "output": "images/page-04-charging-case-detail.png",
+      "output_sha256": "a961957fc2528b7a745eca445c8fbe1ddf7eb4e61271ca4af4ed543af4ae22ea",
+      "post_processing": []
+    },
+    {
+      "page_id": "page-05",
+      "tool": "image_gen.imagegen",
+      "model": "not_returned_by_imagegen_tool",
+      "request_id": "not_returned_by_imagegen_tool",
+      "generated_at": "2026-07-16T13:14:11+08:00",
+      "prompt": "生成一张完整 1200x1200 京东方形外观细节图。以 asset-01 和 asset-02 为参考，一只同款米白耳机位于微距前景，完整保留圆润水滴形主机、环形结构、下方圆润长水滴形部件、可见孔位与浅金色小细节；同色鹅卵石形充电盒作为柔和虚化后景，保持其顶部细长椭圆装饰牌和分缝。云白摄影台、轻柔侧光、细腻弧线阴影，体现圆润外观，不夸张材质性能。图内原生、逐字准确绘制“米白圆润外观”和“细节近赏”，标题位于上方。不要品牌名、参数、功能、包装、售后、材质性能宣称、人物或新增部件。",
+      "source_asset_ids": [
+        "asset-01",
+        "asset-02"
+      ],
+      "output": "images/page-05-material-form-detail.png",
+      "output_sha256": "4fcc9eb87b3cefb34f2b9a2178986f3cbd42ec7cb5b23f946072185a7ba60d34",
+      "post_processing": []
+    },
+    {
+      "page_id": "page-06",
+      "tool": "image_gen.imagegen",
+      "model": "not_returned_by_imagegen_tool",
+      "request_id": "not_returned_by_imagegen_tool",
+      "generated_at": "2026-07-16T13:14:11+08:00",
+      "prompt": "生成一张完整 1200x1600 京东竖向详情静物图。以 asset-01 和 asset-02 的同一款米白耳机和充电盒为商品参考，清晨通勤桌面静物：闭合鹅卵石形充电盒与一对耳机置于浅灰托盘和简约纸质笔记本旁，耳机严格保持圆润主机、环形结构、下方长水滴形部件和可见孔位，充电盒保持分缝和顶部中央细长椭圆装饰牌。雾蓝自然晨光从侧面照入，商品在画面中部清晰可见。图内原生、逐字准确绘制“通勤场景”和“米白外观”，标题位于上方。不要人物佩戴、品牌名、参数、续航、功能、接口、包装、售后、价格、图标或新增配件。",
+      "source_asset_ids": [
+        "asset-01",
+        "asset-02"
+      ],
+      "output": "images/page-06-commute-still-life.png",
+      "output_sha256": "9f8da1086b550f2c77ff3b47b7b623a422ffdac996c8bc6ec5b8cc1de08a8cf3",
+      "post_processing": []
+    },
+    {
+      "page_id": "page-07",
+      "tool": "image_gen.imagegen",
+      "model": "not_returned_by_imagegen_tool",
+      "request_id": "not_returned_by_imagegen_tool",
+      "generated_at": "2026-07-16T13:14:11+08:00",
+      "prompt": "生成一张完整 1200x1600 京东竖向旅行静物图。以 asset-01 和 asset-02 为身份参考，靠窗旅行桌面前景清晰摆放一对米白耳机与闭合鹅卵石形充电盒；严格保持耳机三段结构、数量、颜色、可见孔位，以及充电盒轮廓、分缝和顶部中央细长椭圆装饰牌。背景只保留虚化旅行笔记和窗外柔和天空作为环境，不让道具遮挡商品。图内原生、逐字准确绘制“旅行场景”和“耳机与充电盒”，标题位于上部留白。不要人物佩戴、品牌名、参数、功能、接口、包装、售后、行李清单或任何性能承诺。",
+      "source_asset_ids": [
+        "asset-01",
+        "asset-02"
+      ],
+      "output": "images/page-07-travel-still-life.png",
+      "output_sha256": "f15e29051de53a246615198b54d3623717258693ae54685131692876d9b5882e",
+      "post_processing": []
+    },
+    {
+      "page_id": "page-08",
+      "tool": "image_gen.imagegen",
+      "model": "not_returned_by_imagegen_tool",
+      "request_id": "not_returned_by_imagegen_tool",
+      "generated_at": "2026-07-16T13:14:11+08:00",
+      "prompt": "生成一张完整 1200x1600 京东竖向收束页。以 asset-01 和 asset-02 的同款米白耳机与闭合鹅卵石形充电盒为唯一售卖商品，商品置于黄昏窗边桌面前景，耳机与充电盒形成自然环形构图，严格保持一对数量、圆润主机、环形结构、下方长水滴形部件、可见孔位、米白颜色和充电盒分缝。暖金夕光与雾蓝阴影形成安静的居家静物氛围。图内原生、逐字准确绘制“居家片刻”和“云白随行”，标题位于上方窗光区域。不要人物佩戴、品牌名、型号、参数、续航、功能、接口、包装、售后、价格、图标或新增部件。",
+      "source_asset_ids": [
+        "asset-01",
+        "asset-02"
+      ],
+      "output": "images/page-08-home-lifestyle-closing.png",
+      "output_sha256": "89d3ed2163f940b438d8a1a86ad993d1c4cba73b71a49428b164140e7074e1d0",
+      "post_processing": []
+    }
+  ],
+  "review": {
+    "status": "manual_review",
+    "reviewer_type": "same_agent",
+    "contact_sheet": "review/contact-sheet.jpg",
+    "contact_sheet_sha256": "b8d1143199b1e032c6d4fe6f9df1b5607574cd2d2bbdfe7f3751043117a4bfe5",
+    "set_checks": {
+      "commercial_coverage": {
+        "status": "pass",
+        "evidence": "Contact Sheet 第01页为无文案搜索首图；第02至05页分别完成外观定位、结构、充电盒组合和细节；第06至08页为通勤、旅行、居家静物。"
+      },
+      "surface_difference": {
+        "status": "pass",
+        "evidence": "第01至05页为1:1方图；第06至08页为3:4竖图，首图、图库和详情模块构图任务不同。"
+      },
+      "composition_diversity": {
+        "status": "pass",
+        "evidence": "Contact Sheet 可见 hero、angles、detail、scene、closing 五类构图；场景与收束仅三页。"
+      },
+      "text_integration": {
+        "status": "pass",
+        "evidence": "第02至08页中文标题均逐字可读，且与商品、窗光或弧面空间融合；第01页按要求无文案。"
+      },
+      "product_consistency": {
+        "status": "pass",
+        "evidence": "第01至08页均保持一对奶油米白耳机、环形结构、下方长水滴形部件和鹅卵石形充电盒；第04页已重做以消除第三只耳机和黑边。"
+      }
+    },
+    "pages": [
+      {
+        "page_id": "page-01",
+        "status": "pass",
+        "evidence": "人工原图复核通过：clean_search_hero"
+      },
+      {
+        "page_id": "page-02",
+        "status": "pass",
+        "evidence": "人工原图复核通过：positioning_hero"
+      },
+      {
+        "page_id": "page-03",
+        "status": "pass",
+        "evidence": "人工原图复核通过：multi_angle_structure"
+      },
+      {
+        "page_id": "page-04",
+        "status": "pass",
+        "evidence": "人工原图复核通过：charging_case_detail"
+      },
+      {
+        "page_id": "page-05",
+        "status": "pass",
+        "evidence": "人工原图复核通过：material_form_detail"
+      },
+      {
+        "page_id": "page-06",
+        "status": "pass",
+        "evidence": "人工原图复核通过：commute_still_life"
+      },
+      {
+        "page_id": "page-07",
+        "status": "pass",
+        "evidence": "人工原图复核通过：travel_still_life"
+      },
+      {
+        "page_id": "page-08",
+        "status": "pass",
+        "evidence": "人工原图复核通过：home_lifestyle_closing"
+      }
+    ]
+  }
+}
