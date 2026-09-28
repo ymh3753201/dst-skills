@@ -1,6 +1,6 @@
 {
   "name": "dst-skills",
-  "version": "8.2.0",
+  "version": "9.0.0",
   "description": "Multimodal ecommerce visual strategy, reference-driven image generation, and professional review for Codex.",
   "author": {
     "name": "Meihua Ye",
@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "DST Ecommerce Visual Director",
     "shortDescription": "商品图分析、整套电商视觉方案与参考图生图",
-    "longDescription": "Analyze arbitrary product images, plan platform-specific ecommerce image placements and dimensions, create commercially complete copy and page blueprints, compile professional Image 2 prompts, generate from references, and review every page for product consistency, copy quality, claim safety, and buyer value.",
+    "longDescription": "Analyze arbitrary product images, plan platform-specific ecommerce image placements and dimensions, create commercially complete copy and page blueprints, generate through Codex image capabilities with Ark CLI and Doubao Seedream 5.0 Pro as the verified failure fallback, and review every page for product consistency, copy quality, claim safety, and buyer value.",
     "developerName": "Meihua Ye",
     "category": "Productivity",
     "capabilities": [

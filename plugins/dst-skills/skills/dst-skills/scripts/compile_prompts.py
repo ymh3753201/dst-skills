@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile v8.2 page strategy into executable Image 2 prompts."""
+"""Compile v9.0 page strategy into channel-neutral executable image prompts."""
 
 import argparse
 import json

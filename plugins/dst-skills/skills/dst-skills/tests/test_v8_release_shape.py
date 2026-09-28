@@ -11,8 +11,8 @@ from project_contract import validate_project
 
 
 class V80ReleaseShapeTests(unittest.TestCase):
-    def test_release_version_is_v81(self):
-        self.assertEqual((SKILL_DIR / "VERSION").read_text(encoding="utf-8").strip(), "8.2.0")
+    def test_release_version_is_v9(self):
+        self.assertEqual((SKILL_DIR / "VERSION").read_text(encoding="utf-8").strip(), "9.0.0")
 
     def test_skill_defines_visual_director_role_and_pre_confirmation_gates(self):
         skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
@@ -68,8 +68,8 @@ class V80ReleaseShapeTests(unittest.TestCase):
             )
         )
 
-        self.assertEqual(project["schema_version"], "8.2")
-        self.assertEqual(project["skill_version"], "8.2.0")
+        self.assertEqual(project["schema_version"], "9.0")
+        self.assertEqual(project["skill_version"], "9.0.0")
         self.assertGreaterEqual(len(project["target"]["placements"]), 2)
         self.assertGreaterEqual(len(project["decision_map"]), 5)
         self.assertTrue(project["product"]["identity_lock"])
@@ -86,7 +86,7 @@ class V80ReleaseShapeTests(unittest.TestCase):
             )
         )
 
-        self.assertEqual(example["schema_version"], "8.2")
+        self.assertEqual(example["schema_version"], "9.0")
         self.assertEqual(validate_project(example), [])
 
     def test_evals_cover_single_image_diagnosis_and_multi_spec_platforms(self):
@@ -99,6 +99,7 @@ class V80ReleaseShapeTests(unittest.TestCase):
         self.assertIn("前景单椅", corpus)
         self.assertIn("多个图片落点", corpus)
         self.assertIn("1080x1440", corpus)
+        self.assertIn("800x800", corpus)
 
     def test_release_checker_separates_static_and_full_verification(self):
         checker = (SKILL_DIR / "scripts" / "validate_skill_release.py").read_text(

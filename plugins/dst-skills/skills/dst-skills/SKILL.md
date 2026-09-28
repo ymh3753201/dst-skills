@@ -5,7 +5,7 @@ description: Use whenever a user supplies product images and wants multimodal pr
 
 # dst-skills
 
-把任意商品素材转成真正帮助购买决策的专业电商套图。Codex 必须同时扮演电商视觉策略总监、商业摄影指导、商品文案策划和商品身份审核者：先多模态读图并设计整套视觉策略，用户一次确认后，再由当前图像模型完成每一张成图、复核和返工。
+把任意商品素材转成真正帮助购买决策的专业电商套图。Codex 必须同时扮演电商视觉策略总监、商业摄影指导、商品文案策划和商品身份审核者：先多模态读图并设计整套视觉策略，用户一次确认后，再按已锁定的生图渠道完成每一张成图、复核和返工。
 
 ## 不变底线
 
@@ -23,7 +23,7 @@ description: Use whenever a user supplies product images and wants multimodal pr
 
 **一个平台不是一种尺寸。** 查询当前平台后，把搜索首图、方形图库、3:4 主图、SKU、详情模块和活动图分别建立 `placement`，逐项记录用途、数量、比例、选定像素、依据和 `research_ids`。公开资料没有精确像素时标记“设计建议”，不冒充后台硬规则。
 
-为 Image 2 选择可直接生成的精确尺寸；实际像素不合格时由模型按可执行规格重做，不通过脚本裁切、缩放或补边伪装完成。
+按已选生图策略选择可直接生成的精确尺寸：`codex_image` 读取 [OpenAI 图像能力依据](references/openai_image_capability.md)；`arkcli_seedream_5_pro` 读取 [Ark CLI 与 Seedream 执行合同](references/arkcli_seedream.md)。默认降级策略必须选择同时满足两套合同的交集尺寸，确保降级时不改画幅。实际像素不合格时由图像模型按可执行规格重做，不通过脚本裁切、缩放或补边伪装完成。
 
 ## 3. 事实文案与安全商业文案
 
@@ -75,9 +75,50 @@ python3 scripts/validate_project.py path/to/project.json --schema-only
 
 确认后的数量、页面任务、事实、核心文案、商品身份和 placement 是生图依据。确认时记录 `plan_sha256` 和 `execution_manifest_sha256`。生成记录必须包含 `attempt`、`generated_at`、`prompt_sha256`和同一 `plan_sha256`；生成时间必须晚于确认时间。确认后如果页面、文案、提示词或方案发生实质变化，重新确认，不得事后补写时间或替换方案。
 
-## 9. 生图、视觉验收与交付
+## 9. 选择生图渠道
 
-生成前读取当前 `imagegen` Skill，将参考素材和编译后的逐页提示词直接交给 Codex 图像生成/编辑能力。错字可局部编辑；商品、构图、信息层级或商业价值失败时整页重做。
+项目用 `generation_channel` 锁定整套图的执行策略：
+
+- `codex_image_with_arkcli_fallback`：默认值。先使用 Codex 图像生成/编辑能力；只有出现可核验的调用失败时，才降级到 Ark CLI + Seedream 5.0 Pro。
+- `codex_image`：用户明确要求仅使用 Codex、不允许降级时使用。
+- `arkcli_seedream_5_pro`：用户明确要求直接使用 Ark CLI + Seedream 5.0 Pro 时使用。
+
+默认策略已在确认前把 Ark 降级通道写入执行清单，因此真实失败后降级不需要再次确认。如果从“仅 Codex”或“仅 Ark”切换策略，仍必须重新编译执行清单并让用户重新确认。
+
+### Codex 图像渠道
+
+错字可使用当前图像编辑能力局部修复；商品、构图、信息层级或商业价值失败时整页重做。生成记录保留原有 `codex_image_gen`/`codex_image_edit`/`image_gen.imagegen`、工具真实返回的模型与请求 ID、提示词、方案、素材和输出哈希。
+
+### 何时允许降级
+
+只有以下情况允许从 Codex 降级到 Ark：`tool_unavailable`（工具不可用）、`request_failed`（请求明确报错）、`no_image_output`（请求结束但没有返回图片）。可安全重试时最多重试一次；仍失败就降级，不无限循环。
+
+图片已返回但错字、商品漂移、构图或视觉质量不合格，不是调用失败，不允许借此直接切换 Ark。降级记录必须在 `fallback_from` 保存 Codex 渠道、工具、尝试时间、上述三种 `error_type` 之一和脱敏错误摘要。
+
+### Ark CLI + Seedream 5.0 Pro 渠道
+
+生成前读取当前 `arkcli-gen` Skill 及其要求的 `arkcli-shared`，固定使用完整模型 ID `doubao-seedream-5-0-pro-260628`，不得用实际为 lite 的 `doubao-seedream-5-0-260128` 代替。每次会话按 Ark CLI 工作流执行：
+
+1. `arkcli auth status --format json` 检查登录和 API Key，只报告脱敏状态。
+2. `arkcli resources list --modality image --format json` 核对当前资源；Platform profile 选中 Endpoint 后必须执行 `arkcli resources resolve <ep-id> --format json`，确认它处于 `Running` 且绑定 Pro 完整模型。再用 `arkcli models get doubao-seedream-5-0-pro-260628 --transform supported_params --format json` 回读当下参数能力。Plan profile 使用完整模型 ID；Platform 没有匹配 Endpoint 时停止，不擅自部署。
+3. 每页单独调用一次 `arkcli +gen`。Seedream 5.0 Pro 不支持组图模式，不传 `--image-count`、`--n`、`--sequential`、`--tools` 或 `--guidance-scale`；最多传 10 张已登记参考图。
+
+Agent 执行的每条 Ark CLI 命令都带 `ARKCLI_NO_UPDATE_NOTIFIER=1 ARKCLI_CALLER_TYPE=ai_agent ARKCLI_CALLER_NAME=codex ARKCLI_SKILL_NAME=arkcli-gen`。生成命令使用：
+
+```bash
+ARKCLI_NO_UPDATE_NOTIFIER=1 \
+ARKCLI_CALLER_TYPE=ai_agent \
+ARKCLI_CALLER_NAME=codex \
+ARKCLI_SKILL_NAME=arkcli-gen \
+arkcli +gen --model '<完整Pro模型ID或已绑定Pro的Endpoint-ID>' --modality image \
+  --size '<页面精确尺寸>' --output-format png --response-format url \
+  --watermark=false --input '@<参考图>' \
+  --save-to '<项目>/images' --no-open '<六段式完整提示词>'
+```
+
+有多张参考图时按 `page.references` 顺序重复 `--input @<文件>`。必须显式传 `--watermark=false`；省略该字段会沿用接口的 `watermark=true` 默认值，裸 `--watermark` 也会开启水印。不在命令或项目文件中写 API Key。Ark CLI 成功返回 `status=succeeded` 和 `local_path` 后，只允许把文件移动/改名到页面 `output`，不得裁切、缩放、叠字或补边；立即记录 `tool=arkcli.+gen`、基础模型完整 ID、实际请求的 `resource_id`（Plan 模型 ID 或 Platform Endpoint ID）、Ark CLI 版本、`watermark=false`、时间、提示词与哈希、方案哈希、来源素材、输出哈希和成功状态。预签名 URL 24 小时失效，不作为长期交付依据。
+
+错字可用同一模型带参考图再次生成；商品、构图、信息层级或商业价值失败时整页重做。Ark CLI 命令成功只证明请求完成，不代表视觉验收通过。
 
 逐张原图复核后再制作 Contact Sheet。`review.set_checks` 除商业覆盖、落点差异、构图多样性、文字融合和商品一致性外，还必须检查 `copy_richness`、`buyer_value`、`prompt_fidelity`和 `claim_safety`。每页对商业价值、文案层级、商品一致性、提示词忠实度和视觉完成度打 1—5 分；任一项低于 4 分不得 `pass`。“人工复核通过”之类空话不是证据。
 

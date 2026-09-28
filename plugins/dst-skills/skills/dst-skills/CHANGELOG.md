@@ -1,5 +1,18 @@
 # Changelog
 
+## 9.0.0 - Unreleased
+
+- 保留原有 Codex `imagegen` 生成/编辑渠道及 Image 2 尺寸、记录和验收规则；新增可选 Ark CLI `+gen` 渠道，固定使用完整模型 ID `doubao-seedream-5-0-pro-260628`。
+- 新增 `generation_channel`：默认 `codex_image_with_arkcli_fallback`，始终先调用 Codex；只有工具不可用、请求失败或无图输出时才降级到 Ark。用户仍可明确选择仅 Codex 或直接 Ark。
+- 生图前强制执行认证状态、当前图片资源和模型 `supported_params` 三步核对；Agent 命令按 Ark CLI 共享协议记录调用来源，不在项目中保存 API Key。
+- 尺寸和生成记录按渠道分开验证：默认降级策略必须同时通过 Image 2 和 Seedream 尺寸合同；Ark 降级记录必须包含脱敏的 Codex 失败证据。
+- Seedream 5.0 Pro 每次只生成单图，完整套图逐页调用；拒绝组图、联网工具和 `guidance_scale` 等该模型不支持的参数，参考图最多 10 张。
+- 正式命令显式传 `--watermark=false`；修复省略该参数时服务端默认添加“AI生成”水印的问题。
+- Ark 渠道生成记录强制保存 `tool=arkcli.+gen`、完整 Pro 模型 ID、实际 `resource_id`、Ark CLI 版本、`watermark=false` 和成功状态；Codex 渠道继续保存原有工具、模型与请求 ID。
+- 旧版 v8.2 项目仍只接受 Codex 图像生成记录；新增 Ark 记录规则仅适用于 v9，防止旧项目绕过原有渠道约束。
+- 对格式错误的生图渠道和降级失败记录返回明确校验错误，避免校验器直接异常退出。
+- 更新 Skill、插件元数据、模板、示例、评测和回归测试，并以 Ark CLI 真实生成烟雾测试验证文件落地与像素尺寸。
+
 ## 8.2.0 - 2026-07-18
 
 - 修复“参数不足就少写文案”的执行缺陷：把事实文案与安全商业文案分开，缺少参数时仍必须用可见设计、审美利益、场景叙事、类目教育和买家引导形成完整商业表达。

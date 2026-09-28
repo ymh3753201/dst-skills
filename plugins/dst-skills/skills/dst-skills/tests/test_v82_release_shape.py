@@ -11,10 +11,10 @@ from project_contract import validate_project
 
 
 class V82ReleaseShapeTests(unittest.TestCase):
-    def test_release_version_is_v82(self):
+    def test_release_version_is_v9(self):
         self.assertEqual(
             (SKILL_DIR / "VERSION").read_text(encoding="utf-8").strip(),
-            "8.2.0",
+            "9.0.0",
         )
 
     def test_skill_explains_safe_copy_prompt_compilation_and_integrity_gates(self):
@@ -58,8 +58,8 @@ class V82ReleaseShapeTests(unittest.TestCase):
             )
         )
 
-        self.assertEqual(project["schema_version"], "8.2")
-        self.assertEqual(project["skill_version"], "8.2.0")
+        self.assertEqual(project["schema_version"], "9.0")
+        self.assertEqual(project["skill_version"], "9.0.0")
         self.assertEqual(validate_project(project), [])
 
     def test_example_project_uses_v82_contract(self):
@@ -69,7 +69,7 @@ class V82ReleaseShapeTests(unittest.TestCase):
             )
         )
 
-        self.assertEqual(project["schema_version"], "8.2")
+        self.assertEqual(project["schema_version"], "9.0")
         self.assertEqual(validate_project(project), [])
 
     def test_evals_cover_sparse_copy_prompt_and_review_regressions(self):
