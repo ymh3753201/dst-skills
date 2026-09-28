@@ -8,8 +8,8 @@ SKILL_DIR = Path(__file__).resolve().parents[1]
 
 
 class ReleaseShapeCompatibilityTests(unittest.TestCase):
-    def test_version_is_v8(self):
-        self.assertEqual((SKILL_DIR / "VERSION").read_text(encoding="utf-8").strip(), "8.2.0")
+    def test_version_is_v9(self):
+        self.assertEqual((SKILL_DIR / "VERSION").read_text(encoding="utf-8").strip(), "9.0.0")
 
     def test_main_skill_is_a_thin_orchestrator(self):
         skill_lines = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8").splitlines()
@@ -97,8 +97,8 @@ class ReleaseShapeCompatibilityTests(unittest.TestCase):
             (SKILL_DIR / "examples" / "example_project.json").read_text(encoding="utf-8")
         )
 
-        self.assertEqual(example["schema_version"], "8.2")
-        self.assertEqual(example["skill_version"], "8.2.0")
+        self.assertEqual(example["schema_version"], "9.0")
+        self.assertEqual(example["skill_version"], "9.0.0")
 
     def test_full_set_example_has_platform_evidence_and_composition_types(self):
         example = json.loads(
@@ -166,7 +166,7 @@ class ReleaseShapeCompatibilityTests(unittest.TestCase):
         references = sorted((SKILL_DIR / "references").glob("*.md"))
 
         self.assertGreaterEqual(len(references), 4)
-        self.assertLessEqual(len(references), 6)
+        self.assertLessEqual(len(references), 7)
 
     def test_project_template_stays_lightweight(self):
         template_path = SKILL_DIR / "templates" / "project_template.json"
@@ -224,6 +224,7 @@ class ReleaseShapeCompatibilityTests(unittest.TestCase):
         self.assertIn("淘宝标准的电商图片", corpus)
         self.assertIn("多个图片落点", corpus)
         self.assertIn("1080x1440", corpus)
+        self.assertIn("800x800", corpus)
 
 
 if __name__ == "__main__":

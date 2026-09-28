@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static and full release checker for dst-skills v8.2."""
+"""Static and full release checker for dst-skills v9.0."""
 
 import argparse
 import json
@@ -36,8 +36,8 @@ def validate_release(root=None):
             errors.append(f"missing:{relative}")
 
     version_path = root / "VERSION"
-    if version_path.is_file() and version_path.read_text(encoding="utf-8").strip() != "8.2.0":
-        errors.append("version-must-be-8.2.0")
+    if version_path.is_file() and version_path.read_text(encoding="utf-8").strip() != "9.0.0":
+        errors.append("version-must-be-9.0.0")
 
     skill_path = root / "SKILL.md"
     if skill_path.is_file():
@@ -65,7 +65,8 @@ def validate_release(root=None):
 
     references_dir = root / "references"
     reference_count = len(list(references_dir.glob("*.md"))) if references_dir.is_dir() else 0
-    if not 4 <= reference_count <= 6:
+    # v9 keeps one focused capability reference per selectable image channel.
+    if not 4 <= reference_count <= 7:
         errors.append(f"reference-count:{reference_count}")
 
     template_path = root / "templates" / "project_template.json"
@@ -86,8 +87,8 @@ def validate_release(root=None):
         except json.JSONDecodeError:
             errors.append("invalid-example-project")
         else:
-            if example.get("schema_version") != "8.2":
-                errors.append("example:schema-version-must-be-8.2")
+            if example.get("schema_version") != "9.0":
+                errors.append("example:schema-version-must-be-9.0")
             errors.extend(f"example:{error}" for error in validate_project(example))
 
     evals_path = root / "evals" / "evals.json"

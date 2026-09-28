@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CLI entrypoint for dst-skills v7.0 through v8.2 project validation."""
+"""CLI entrypoint for dst-skills v7.0 through v9.0 project validation."""
 
 import argparse
 import json

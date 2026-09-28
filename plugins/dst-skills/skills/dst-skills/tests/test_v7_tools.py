@@ -203,7 +203,7 @@ class V7ToolTests(unittest.TestCase):
 
         errors = module.validate_release(skill_copy)
 
-        self.assertIn("version-must-be-8.2.0", errors)
+        self.assertIn("version-must-be-9.0.0", errors)
         self.assertIn("skill-too-long:221", errors)
 
     def test_release_validator_runs_the_project_template_contract(self):
@@ -234,7 +234,7 @@ class V7ToolTests(unittest.TestCase):
 
         errors = module.validate_release(skill_copy)
 
-        self.assertIn("example:skill-version-must-be-8.2.0", errors)
+        self.assertIn("example:skill-version-must-be-9.0.0", errors)
 
     def test_release_cli_reports_current_skill_ok(self):
         result = subprocess.run(

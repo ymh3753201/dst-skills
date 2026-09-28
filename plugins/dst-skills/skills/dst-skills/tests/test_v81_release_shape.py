@@ -14,7 +14,7 @@ class V81ReleaseShapeTests(unittest.TestCase):
     def test_current_release_preserves_v81_gates(self):
         self.assertEqual(
             (SKILL_DIR / "VERSION").read_text(encoding="utf-8").strip(),
-            "8.2.0",
+            "9.0.0",
         )
 
     def test_skill_closes_confirmation_gate_loopholes(self):
@@ -54,8 +54,8 @@ class V81ReleaseShapeTests(unittest.TestCase):
             )
         )
 
-        self.assertEqual(project["schema_version"], "8.2")
-        self.assertEqual(project["skill_version"], "8.2.0")
+        self.assertEqual(project["schema_version"], "9.0")
+        self.assertEqual(project["skill_version"], "9.0.0")
         self.assertEqual(project["plan_document"], "plan.md")
         self.assertEqual(validate_project(project), [])
 
@@ -66,7 +66,7 @@ class V81ReleaseShapeTests(unittest.TestCase):
             )
         )
 
-        self.assertEqual(project["schema_version"], "8.2")
+        self.assertEqual(project["schema_version"], "9.0")
         self.assertEqual(validate_project(project), [])
 
     def test_evals_cover_jd_earbud_confirmation_gate_regression(self):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Backward-compatible project contract for dst-skills v7.0 through v8.2."""
+"""Backward-compatible project contract for dst-skills v7.0 through v9.0."""
 
 import hashlib
 import json
@@ -99,10 +99,16 @@ def _copy_texts(copy_value):
 
 
 def _execution_manifest_sha256(project):
-    payload = [
+    pages = [
         {field: page.get(field) for field in EXECUTION_MANIFEST_FIELDS}
         for page in project.get("pages", [])
     ]
+    payload = pages
+    if project.get("schema_version") == "9.0":
+        payload = {
+            "generation_channel": project.get("generation_channel"),
+            "pages": pages,
+        }
     encoded = json.dumps(
         payload,
         ensure_ascii=False,
@@ -141,6 +147,7 @@ def validate_project(project, project_dir=None):
         "8.0": "8.0.0",
         "8.1": "8.1.0",
         "8.2": "8.2.0",
+        "9.0": "9.0.0",
     }
     if schema_version not in supported_versions:
         errors.append("unsupported-schema-version")
@@ -148,12 +155,23 @@ def validate_project(project, project_dir=None):
         errors.append(
             f"skill-version-must-be-{supported_versions[schema_version]}"
         )
-    uses_surface_contract = schema_version in {"7.1", "7.2", "8.0", "8.1", "8.2"}
-    uses_composition_contract = schema_version in {"7.2", "8.0", "8.1", "8.2"}
-    is_v8x = schema_version in {"8.0", "8.1", "8.2"}
+    uses_surface_contract = schema_version in {"7.1", "7.2", "8.0", "8.1", "8.2", "9.0"}
+    uses_composition_contract = schema_version in {"7.2", "8.0", "8.1", "8.2", "9.0"}
+    is_v8x = schema_version in {"8.0", "8.1", "8.2", "9.0"}
     is_v81 = schema_version == "8.1"
-    is_v82 = schema_version == "8.2"
-    uses_claim_contract = schema_version in {"8.1", "8.2"}
+    is_v82 = schema_version in {"8.2", "9.0"}
+    is_v9 = schema_version == "9.0"
+    raw_generation_channel = project.get("generation_channel")
+    generation_channel = (
+        raw_generation_channel if isinstance(raw_generation_channel, str) else None
+    )
+    if is_v9 and generation_channel not in {
+        "codex_image_with_arkcli_fallback",
+        "codex_image",
+        "arkcli_seedream_5_pro",
+    }:
+        errors.append(f"unsupported-generation-channel:{raw_generation_channel}")
+    uses_claim_contract = schema_version in {"8.1", "8.2", "9.0"}
     if project.get("status") in {"generating", "review", "accepted"}:
         if project.get("confirmation", {}).get("status") != "confirmed":
             errors.append("generation-requires-confirmed-plan")
@@ -426,17 +444,34 @@ def validate_project(project, project_dir=None):
             except (TypeError, ValueError):
                 errors.append(f"{placement_id}:invalid-selected-size:{size}")
                 continue
-            if width % 16 or height % 16:
-                errors.append(
-                    f"{placement_id}:image2-size-edge-must-be-multiple-of-16:{size}"
-                )
-            if max(width, height) >= 3840:
-                errors.append(f"{placement_id}:image2-size-edge-too-long:{size}")
-            if max(width, height) / min(width, height) > 3:
-                errors.append(f"{placement_id}:image2-size-ratio-too-extreme:{size}")
             pixels = width * height
-            if pixels < 655360 or pixels > 8294400:
-                errors.append(f"{placement_id}:image2-size-pixel-count-invalid:{size}")
+            uses_seedream_size_contract = is_v9 and generation_channel in {
+                "codex_image_with_arkcli_fallback",
+                "arkcli_seedream_5_pro",
+            }
+            uses_image2_size_contract = generation_channel != "arkcli_seedream_5_pro"
+            if uses_seedream_size_contract:
+                if max(width, height) / min(width, height) > 16:
+                    errors.append(
+                        f"{placement_id}:seedream-pro-size-ratio-too-extreme:{size}"
+                    )
+                if pixels < 921600 or pixels > 4624220:
+                    errors.append(
+                        f"{placement_id}:seedream-pro-size-pixel-count-invalid:{size}"
+                    )
+            if uses_image2_size_contract:
+                if width % 16 or height % 16:
+                    errors.append(
+                        f"{placement_id}:image2-size-edge-must-be-multiple-of-16:{size}"
+                    )
+                if max(width, height) >= 3840:
+                    errors.append(f"{placement_id}:image2-size-edge-too-long:{size}")
+                if max(width, height) / min(width, height) > 3:
+                    errors.append(f"{placement_id}:image2-size-ratio-too-extreme:{size}")
+                if pixels < 655360 or pixels > 8294400:
+                    errors.append(
+                        f"{placement_id}:image2-size-pixel-count-invalid:{size}"
+                    )
             divisor = math.gcd(width, height)
             actual_ratio = f"{width // divisor}:{height // divisor}"
             if placement.get("aspect_ratio") != actual_ratio:
@@ -1057,10 +1092,9 @@ def validate_project(project, project_dir=None):
                         f"{decision_id}:{count}"
                     )
 
-    required_generation_fields = (
+    common_generation_fields = (
         "tool",
         "model",
-        "request_id",
         "generated_at",
         "prompt",
         "source_asset_ids",
@@ -1069,7 +1103,7 @@ def validate_project(project, project_dir=None):
         "post_processing",
     )
     if is_v82:
-        required_generation_fields = required_generation_fields + (
+        common_generation_fields = common_generation_fields + (
             "attempt",
             "prompt_sha256",
             "plan_sha256",
@@ -1091,6 +1125,17 @@ def validate_project(project, project_dir=None):
 
     for record in project.get("generation_log", []):
         page_id = record.get("page_id", "unknown-page")
+        is_ark_record = is_v9 and record.get("tool") == "arkcli.+gen"
+        required_generation_fields = common_generation_fields + (
+            (
+                "status",
+                "arkcli_version",
+                "resource_id",
+                "watermark",
+            )
+            if is_ark_record
+            else ("request_id",)
+        )
         for field in required_generation_fields:
             value = record.get(field)
             if value is None or value == "":
@@ -1100,7 +1145,67 @@ def validate_project(project, project_dir=None):
         for source_asset_id in record.get("source_asset_ids", []):
             if source_asset_id not in asset_ids:
                 errors.append(f"{page_id}:unknown-generation-source:{source_asset_id}")
-        if record.get("tool") not in {
+        if is_v9 and generation_channel == "arkcli_seedream_5_pro":
+            if not is_ark_record:
+                errors.append(f"{page_id}:final-image-tool-must-be-arkcli-gen")
+        elif is_v9 and generation_channel == "codex_image":
+            if is_ark_record:
+                errors.append(f"{page_id}:final-image-tool-must-be-codex-imagegen")
+        elif is_v9 and generation_channel == "codex_image_with_arkcli_fallback":
+            if is_ark_record:
+                fallback = record.get("fallback_from")
+                if not isinstance(fallback, dict):
+                    errors.append(f"{page_id}:arkcli-fallback-requires-codex-failure")
+                else:
+                    for field in (
+                        "channel",
+                        "tool",
+                        "attempted_at",
+                        "error_type",
+                        "error_summary",
+                    ):
+                        value = fallback.get(field)
+                        if not isinstance(value, str) or not value.strip():
+                            errors.append(
+                                f"{page_id}:incomplete-fallback-record:{field}"
+                            )
+                    if fallback.get("channel") != "codex_image":
+                        errors.append(f"{page_id}:fallback-source-must-be-codex-image")
+                    if not isinstance(fallback.get("tool"), str) or fallback.get("tool") not in {
+                        "codex_image_gen",
+                        "codex_image_edit",
+                        "image_gen.imagegen",
+                    }:
+                        errors.append(f"{page_id}:invalid-fallback-source-tool")
+                    if not isinstance(fallback.get("error_type"), str) or fallback.get("error_type") not in {
+                        "tool_unavailable",
+                        "request_failed",
+                        "no_image_output",
+                    }:
+                        errors.append(f"{page_id}:invalid-fallback-trigger")
+                    fallback_at = _parse_datetime(fallback.get("attempted_at"))
+                    if fallback_at is None:
+                        errors.append(f"{page_id}:invalid-fallback-attempted-at")
+                    else:
+                        generated_at = _parse_datetime(record.get("generated_at"))
+                        if generated_at is not None and generated_at <= fallback_at:
+                            errors.append(
+                                f"{page_id}:fallback-generation-must-follow-codex-failure"
+                            )
+
+        if is_ark_record:
+            if record.get("model") != "doubao-seedream-5-0-pro-260628":
+                errors.append(f"{page_id}:final-image-model-must-be-seedream-5-pro")
+            if record.get("status") != "succeeded":
+                errors.append(f"{page_id}:arkcli-generation-must-succeed")
+            resource_id = str(record.get("resource_id", ""))
+            if resource_id != "doubao-seedream-5-0-pro-260628" and not resource_id.startswith(
+                "ep-"
+            ):
+                errors.append(f"{page_id}:invalid-arkcli-generation-resource")
+            if record.get("watermark") is not False:
+                errors.append(f"{page_id}:arkcli-watermark-must-be-false")
+        elif record.get("tool") not in {
             "codex_image_gen",
             "codex_image_edit",
             "image_gen.imagegen",
